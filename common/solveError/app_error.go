@@ -1,6 +1,9 @@
 package solveError
 
-import "net/http"
+import (
+	"github.com/pkg/errors"
+	"net/http"
+)
 
 type AppError struct {
 	StatusCode int    `json:"status_code"`
@@ -51,4 +54,21 @@ func ErrInvalidRequest(err error) *AppError {
 
 func ErrInternal(err error) *AppError {
 	return NewFullErrorResponse(http.StatusInternalServerError, err, "internal error", err.Error(), "Internal_ERR")
+}
+
+// 401, Unauthorrize
+func NewUnauthorized(root error, msg, key string) *AppError {
+	return &AppError{
+		StatusCode: http.StatusUnauthorized,
+		RootErr:    root,
+		Message:    msg,
+		Key:        key,
+	}
+}
+
+func NewCustomError(root error, msg, key string) *AppError {
+	if root != nil {
+		return NewErrorResponse(root, msg, root.Error(), key)
+	}
+	return NewErrorResponse(errors.New(msg), msg, msg, key)
 }

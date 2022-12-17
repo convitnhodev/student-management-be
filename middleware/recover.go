@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"nmcnpm/common/solveError"
-	"nmcnpm/component"
+	"managerstudent/common/solveError"
+	"managerstudent/component"
 )
 
 func Recover(ac component.AppContext) gin.HandlerFunc {
