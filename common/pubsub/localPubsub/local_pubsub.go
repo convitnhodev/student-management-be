@@ -2,7 +2,7 @@ package localPubsub
 
 import (
 	"context"
-	"nmcnpm/common/pubsub"
+	"managerstudent/common/pubsub"
 	"sync"
 )
 
