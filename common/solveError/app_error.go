@@ -1,8 +1,10 @@
 package solveError
 
 import (
+	"fmt"
 	"github.com/pkg/errors"
 	"net/http"
+	"strings"
 )
 
 type AppError struct {
@@ -71,4 +73,12 @@ func NewCustomError(root error, msg, key string) *AppError {
 		return NewErrorResponse(root, msg, root.Error(), key)
 	}
 	return NewErrorResponse(errors.New(msg), msg, msg, key)
+}
+
+func ErrEntityExisted(entity string, err error) *AppError {
+	return NewCustomError(
+		err,
+		fmt.Sprintf("%s existed", strings.ToLower(entity)),
+		fmt.Sprintf("%s Existed", entity),
+	)
 }

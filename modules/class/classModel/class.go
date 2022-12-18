@@ -7,5 +7,5 @@ type Class struct {
 	TotalMale               int    `json:"totalMale"`
 	TotalEthnicMinority     int    `json:"totalEthnicMinority"`
 	TotalMaleEthnicMinority int    `json:"totalMaleEthnicMinority"`
-	homeroomTeacher         string `json:"homeroomTeacher"`
+	HomeroomTeacher         string `json:"homeroomTeacher"`
 }

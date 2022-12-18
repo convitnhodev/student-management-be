@@ -2,14 +2,16 @@ package userModel
 
 import (
 	"errors"
+	_const "managerstudent/common/const"
 	"strings"
 )
 
 type User struct {
-	UserName string `json:"user_name" bson:"user_name,omitempty"`
-	Password string `json:"password" bson:"password"`
-	FullName string `json:"full_name" bson:"full_name"`
-	Company  string `bson:"company,omitempty"`
+	UserName string      `json:"user_name" bson:"user_name,omitempty"`
+	Password string      `json:"password" bson:"password"`
+	FullName string      `json:"full_name" bson:"full_name"`
+	Class    string      `bson:"class,omitempty"`
+	Role     _const.Role `json:"role" bson:"role"`
 }
 
 func (user *User) Validate() error {
@@ -17,7 +19,7 @@ func (user *User) Validate() error {
 	//check validate of email
 	user.UserName = strings.TrimSpace(user.UserName)
 	user.FullName = strings.TrimSpace(user.FullName)
-	user.Company = strings.TrimSpace(user.Company)
+	user.Class = strings.TrimSpace(user.Class)
 	user.Password = strings.TrimSpace(user.Password)
 
 	if user.UserName == "" {
