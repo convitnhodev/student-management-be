@@ -5,10 +5,10 @@ type Role int
 const (
 	Student Role = iota
 	Teacher
-	AssistantPrincipals
+	AssistantPrincipal
 	Headmaster
 )
 
 func (r Role) String() string {
-	return []string{"Student", "Teacher", "AssistantPrincipals", "Headmaster"}[r]
+	return []string{"Student", "Teacher", "AssistantPrincipal", "Headmaster"}[r]
 }

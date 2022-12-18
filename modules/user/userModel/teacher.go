@@ -12,6 +12,11 @@ type User struct {
 	FullName string      `json:"full_name,omitempty" bson:"full_name"`
 	Class    string      `json:"class,omitempty" bson:"class"`
 	Role     _const.Role `json:"role,omitempty" bson:"role"`
+	School   string      `json:"school,omitempty" bson:"school"`
+	Salt     string      `json:"-" bson:"salt"`
+	Token    string      `json:"-" bson:"token"`
+	Phone    string      `json:"phone" bson:"phone"`
+	Gmail    string      `json:"gmail" bson:"gmail"`
 }
 
 func (user *User) Validate() error {
@@ -31,7 +36,7 @@ func (user *User) Validate() error {
 	}
 
 	if user.FullName == "" {
-		return errors.New("fullname name can not be blank")
+		return errors.New("full_name name can not be blank")
 	}
 
 	return nil

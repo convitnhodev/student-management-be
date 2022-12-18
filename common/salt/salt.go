@@ -1,4 +1,4 @@
-package salt
+package generatesalt
 
 import (
 	"math/rand"

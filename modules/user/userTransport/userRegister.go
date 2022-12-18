@@ -26,7 +26,7 @@ func UserRegister(app component.AppContext) gin.HandlerFunc {
 			c.JSON(400, err)
 			return
 		}
-		c.JSON(200, data.UserName)
+		c.JSON(200, data.Role.String())
 
 	}
 }

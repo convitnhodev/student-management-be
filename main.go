@@ -8,10 +8,12 @@ import (
 	"log"
 	"managerstudent/common/setupDatabase"
 	"managerstudent/component"
+	"managerstudent/component/managerLog"
 	"managerstudent/modules/user/userTransport"
 )
 
 func main() {
+	managerLog.InitLogs()
 	db := setupDatabase.InitMongoDB()
 	fmt.Println(db)
 	if err := runService(db, nil); err != nil {

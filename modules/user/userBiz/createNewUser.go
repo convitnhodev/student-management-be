@@ -3,6 +3,7 @@ package userBiz
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	generatesalt "managerstudent/common/salt"
 	"managerstudent/common/solveError"
 	"managerstudent/component/hasher"
 	"managerstudent/component/managerLog"
@@ -37,8 +38,9 @@ func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.Use
 	}
 
 	managerLog.InfoLogger.Println("Check user ok, can create currently user")
-
-	data.Password = biz.hasher.HashMd5(data.Password)
+	salt := generatesalt.GenSalt(50)
+	data.Salt = salt
+	data.Password = biz.hasher.HashMd5(salt + data.Password + salt)
 	if err := biz.store.CreateUser(ctx, data); err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return solveError.ErrDB(err)
