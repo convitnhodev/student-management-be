@@ -19,7 +19,7 @@ type createUserBiz struct {
 	hasher hasher.HasherInfo
 }
 
-func NewCraeteUserBiz(store CreateUserStore, hasher hasher.HasherInfo) *createUserBiz {
+func NewCreateUserBiz(store CreateUserStore, hasher hasher.HasherInfo) *createUserBiz {
 	return &createUserBiz{store, hasher}
 }
 

@@ -7,11 +7,11 @@ import (
 )
 
 type User struct {
-	UserName string      `json:"user_name" bson:"user_name,omitempty"`
-	Password string      `json:"password" bson:"password"`
-	FullName string      `json:"full_name" bson:"full_name"`
-	Class    string      `bson:"class,omitempty"`
-	Role     _const.Role `json:"role" bson:"role"`
+	UserName string      `json:"user_name,omitempty" bson:"user_name"`
+	Password string      `json:"password,omitempty" bson:"password"`
+	FullName string      `json:"full_name,omitempty" bson:"full_name"`
+	Class    string      `json:"class,omitempty" bson:"class"`
+	Role     _const.Role `json:"role,omitempty" bson:"role"`
 }
 
 func (user *User) Validate() error {

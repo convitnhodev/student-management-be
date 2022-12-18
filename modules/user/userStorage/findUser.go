@@ -9,7 +9,7 @@ import (
 )
 
 func (db *mongoStore) FindUser(ctx context.Context, conditions interface{}) (*userModel.User, error) {
-	collection := db.db.Database("AutomationTest").Collection("User")
+	collection := db.db.Database("ManagerStudent").Collection("User")
 
 	var data bson.M
 
