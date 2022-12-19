@@ -82,3 +82,11 @@ func ErrEntityExisted(entity string, err error) *AppError {
 		fmt.Sprintf("%s Existed", entity),
 	)
 }
+
+func ErrEntityNotExisted(entity string, err error) *AppError {
+	return NewCustomError(
+		err,
+		fmt.Sprintf("%s is not exist", strings.ToLower(entity)),
+		fmt.Sprintf("%s is not Exist", entity),
+	)
+}

@@ -21,8 +21,21 @@ func NewAddStudentToCourseBiz(store AddStudentToClassStore) *addStudentToCourseB
 	return &addStudentToCourseBiz{store: store}
 }
 
-func (biz *addStudentToClassBiz) AddStudentToCourse(ctx context.Context, data *studentModel.Student) error {
-	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, "student_course")
+func (biz *addStudentToCourseBiz) AddStudentToCourse(ctx context.Context, data *studentModel.Student) error {
+	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id}, "student")
+	if err != nil {
+		if err.Error() != solveError.RecordNotFound {
+			managerLog.ErrorLogger.Println("Some thing error in storage, may be from database")
+			return solveError.ErrDB(err)
+		}
+	}
+
+	if student == nil {
+		managerLog.WarningLogger.Println("Student is not exist")
+		return solveError.ErrEntityNotExisted("Student", nil)
+	}
+
+	student, err = biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, "student_course")
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
@@ -32,7 +45,7 @@ func (biz *addStudentToClassBiz) AddStudentToCourse(ctx context.Context, data *s
 
 	if student != nil {
 		managerLog.WarningLogger.Println("Student exist")
-		return solveError.ErrEntityExisted("Student", nil)
+		return solveError.ErrEntityExisted("Student in this course", nil)
 	}
 
 	managerLog.InfoLogger.Println("Check student ok, can create currently user")

@@ -9,6 +9,7 @@ import (
 	"managerstudent/common/setupDatabase"
 	"managerstudent/component"
 	"managerstudent/component/managerLog"
+	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/user/userTransport"
 )
 
@@ -24,7 +25,6 @@ func main() {
 
 func runService(db *mongo.Client, redis *redis.Client) error {
 	r := gin.Default()
-
 	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
 	appCtx := component.NewAppContext(db, "anhHaudungboemnhe", redis, time)
 
@@ -32,6 +32,12 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))
 
+	}
+	student := r.Group("/student")
+	{
+		student.POST("/new", studentTransport.AddStudent(appCtx))
+		student.POST("/class", studentTransport.AddStudentToClass(appCtx))
+		student.POST("/course", studentTransport.AddStudentToCourse(appCtx))
 	}
 
 	return r.Run(":8080")
