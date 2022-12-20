@@ -16,10 +16,8 @@ func UserRegister(app component.AppContext) gin.HandlerFunc {
 		if err := c.ShouldBind(&data); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
-
 		//
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
-
 		md5 := Hash_local.NewHashInfo()
 		biz := userBiz.NewCreateUserBiz(store, md5)
 		if err := biz.CreateNewUser(c.Request.Context(), &data); err != nil {
