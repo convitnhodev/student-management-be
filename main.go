@@ -31,7 +31,6 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	user := r.Group("/user")
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))
-
 	}
 	student := r.Group("/student")
 	{

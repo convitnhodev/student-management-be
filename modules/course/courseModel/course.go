@@ -3,11 +3,11 @@ package courseModel
 import "managerstudent/modules/user/userModel"
 
 type Course struct {
-	Id                string           `json:"id,omitempty"`
-	SubjectTitle      string           `json:"subject_title" json:"subjectTitle,omitempty"`
-	ClassName         string           `json:"className" json:"className,omitempty"`
-	Total             int              `json:"total" json:"total,omitempty"`
-	MainTeacher       userModel.User   `json:"mainTeacher" json:"mainTeacher"`
-	TeachingAssistant []userModel.User `json:"teachingAssistant" json:"teachingAssistant,omitempty"`
-	TotalMale         int              `json:"totalMale" json:"totalMale,omitempty"`
+	Id                string           `json:"course_id,omitempty " bson:"course_id"`
+	SubjectTitle      string           `json:"subject_title" bson:"subjectTitle"`
+	ClassName         string           `json:"className" bson:"className"`
+	Total             int              `json:"total" bson:"total"`
+	MainTeacher       userModel.User   `json:"mainTeacher" bson:"mainTeacher"`
+	TeachingAssistant []userModel.User `json:"teachingAssistant" bson:"teachingAssistant"`
+	TotalMale         int              `json:"totalMale" bson:"totalMale,omitempty"`
 }

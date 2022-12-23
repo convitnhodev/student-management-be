@@ -35,7 +35,7 @@ func (biz *addStudentToClassBiz) AddStudentToClass(ctx context.Context, data *st
 		return solveError.ErrEntityNotExisted("Student", nil)
 	}
 
-	student, err = biz.store.FindStudent(ctx, bson.M{"id": data.Id, "className": data.ClassName}, "student_class")
+	student, err = biz.store.FindStudent(ctx, bson.M{"id": data.Id, "class_id": data.ClassId}, "student_class")
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
