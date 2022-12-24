@@ -138,3 +138,76 @@ INFO: 2022/12/19 06:02:13 createNewStudentToClass.go:57: Create student ok
 INFO: 2022/12/19 06:02:14 findStudent.go:28: Find record success, storage return record and nil error
 INFO: 2022/12/19 06:02:14 findStudent.go:28: Find record success, storage return record and nil error
 WARNING2022/12/19 06:02:14 createNewStudentToClass.go:47: Student existed
+ERROR: 2022/12/25 03:06:04 createListMark.go:20: Can't Insert to DB, something DB is error
+ERROR: 2022/12/25 03:06:04 addMark.go:25: Some thing error in storage user, may be from database
+ERROR: 2022/12/25 03:08:31 createListMark.go:20: Can't Insert to DB, something DB is error
+ERROR: 2022/12/25 03:08:31 addMark.go:25: Some thing error in storage user, may be from database
+ERROR: 2022/12/25 03:10:58 createListMark.go:20: Can't Insert to DB, something DB is error
+ERROR: 2022/12/25 03:10:58 addMark.go:25: Some thing error in storage user, may be from database
+ERROR: 2022/12/25 03:16:28 createListMark.go:20: Can't Insert to DB, something DB is error
+ERROR: 2022/12/25 03:16:28 addMark.go:25: Some thing error in storage user, may be from database
+INFO: 2022/12/25 03:16:58 createListMark.go:24: Insert to DB success
+INFO: 2022/12/25 03:17:04 createListMark.go:24: Insert to DB success
+INFO: 2022/12/25 03:17:23 createListMark.go:24: Insert to DB success
+ERROR: 2022/12/25 05:04:24 listMark.go:25: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:04:24 listMark.go:27: Some thing error in storage mark, may be from database
+ERROR: 2022/12/25 05:05:13 listMark.go:25: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:05:13 listMark.go:27: Some thing error in storage mark, may be from database
+ERROR: 2022/12/25 05:06:40 listMark.go:25: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:06:40 listMark.go:27: Some thing error in storage mark, may be from database
+ERROR: 2022/12/25 05:08:12 listMark.go:25: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:08:12 listMark.go:27: Some thing error in storage mark, may be from database
+ERROR: 2022/12/25 05:11:43 listMark.go:19: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:11:43 listMark.go:26: Some thing error in storage mark, may be from database
+ERROR: 2022/12/25 05:13:06 listMark.go:19: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:13:06 listMark.go:26: Some thing error in storage mark, may be from database
+ERROR: 2022/12/25 05:17:02 listMark.go:25: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:17:02 listMark.go:27: Some thing error in storage mark, may be from database
+ERROR: 2022/12/25 05:18:33 listMark.go:25: Can't find record into DB, something DB is error
+ERROR: 2022/12/25 05:18:33 listMark.go:27: Some thing error in storage mark, may be from database
+INFO: 2022/12/25 05:20:03 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:20:17 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:20:31 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:20:32 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:20:33 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:20:34 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:27:29 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:27:33 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:27:39 listMark.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:44:41 findStudent.go:28: Find record success, storage return record and nil error
+WARNING2022/12/25 05:44:41 createNewStudent.go:34: Student exist
+INFO: 2022/12/25 05:45:05 findStudent.go:18: Cant find record from database
+INFO: 2022/12/25 05:45:05 createNewStudent.go:38: Check student ok, can create currently user
+INFO: 2022/12/25 05:45:05 addStudent.go:18: Insert to DB success
+INFO: 2022/12/25 05:45:05 createNewStudent.go:44: Create student ok
+INFO: 2022/12/25 05:45:16 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:45:16 findStudent.go:18: Cant find record from database
+INFO: 2022/12/25 05:45:16 createNewStudentToClass.go:51: Check student ok, can create currently user
+INFO: 2022/12/25 05:45:16 addStudent.go:18: Insert to DB success
+INFO: 2022/12/25 05:45:16 createNewStudentToClass.go:57: Create student ok
+INFO: 2022/12/25 05:45:31 findStudent.go:18: Cant find record from database
+WARNING2022/12/25 05:45:31 createNewStudentToCourse.go:34: Student is not exist
+INFO: 2022/12/25 05:46:09 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 05:46:09 findStudent.go:18: Cant find record from database
+INFO: 2022/12/25 05:46:09 createNewStudentToCourse.go:51: Check student ok, can create currently user
+INFO: 2022/12/25 05:46:09 addStudent.go:18: Insert to DB success
+INFO: 2022/12/25 05:46:09 createNewStudentToCourse.go:57: Create student ok
+INFO: 2022/12/25 05:52:01 deleteStudent.go:17: delete to DB success
+INFO: 2022/12/25 05:52:01 deleteStudent.go:30: Create student ok
+INFO: 2022/12/25 05:52:22 deleteStudent.go:17: delete to DB success
+INFO: 2022/12/25 05:52:22 deleteStudent.go:49: Create student ok
+INFO: 2022/12/25 05:52:40 deleteStudent.go:17: delete to DB success
+INFO: 2022/12/25 05:52:40 deleteStudent.go:40: Create student ok
+ERROR: 2022/12/25 06:04:27 updateListMark.go:15: Can't update to DB, something DB is error
+ERROR: 2022/12/25 06:04:27 updateMark.go:26: Some thing error in storage user, may be from database
+ERROR: 2022/12/25 06:09:05 updateListMark.go:19: Can't update to DB, something DB is error
+ERROR: 2022/12/25 06:09:05 updateMark.go:26: Some thing error in storage user, may be from database
+ERROR: 2022/12/25 06:10:10 updateListMark.go:19: Can't update to DB, something DB is error
+ERROR: 2022/12/25 06:10:10 updateMark.go:26: Some thing error in storage user, may be from database
+ERROR: 2022/12/25 06:15:42 updateListMark.go:22: Can't update to DB, something DB is error
+ERROR: 2022/12/25 06:15:42 updateMark.go:26: Some thing error in storage user, may be from database
+ERROR: 2022/12/25 06:16:56 updateListMark.go:22: Can't update to DB, something DB is error
+ERROR: 2022/12/25 06:16:56 updateMark.go:26: Some thing error in storage user, may be from database
+INFO: 2022/12/25 06:17:38 updateListMark.go:25: update result success, storage return record and nil error
+INFO: 2022/12/25 06:17:50 updateListMark.go:25: update result success, storage return record and nil error
+INFO: 2022/12/25 06:18:36 updateListMark.go:25: update result success, storage return record and nil error

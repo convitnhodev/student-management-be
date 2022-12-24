@@ -11,7 +11,7 @@ func (db *mongoStore) CreateListResult(ctx context.Context, data []markModel.Res
 	collection := db.db.Database("ManagerStudent").Collection("Result")
 
 	result := make([]interface{}, 0)
-	for element := range data {
+	for _, element := range data {
 		result = append(result, element)
 	}
 

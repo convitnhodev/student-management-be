@@ -2,15 +2,22 @@ package markStorage
 
 import (
 	"context"
+	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/student/studentModel"
+	"managerstudent/modules/mark/markModel"
 )
 
-func (db *mongoStore) UpdateResult(ctx context.Context, data []studentModel.Result, conditions interface{}) error {
-	collection := db.db.Database("ManagerStudent").Collection("Mark")
+func (db *mongoStore) UpdateResult(ctx context.Context, conditions interface{}, data markModel.Result) error {
+	collection := db.db.Database("ManagerStudent").Collection("Result")
+	tmp, _ := bson.Marshal(data)
+	var target bson.D
 
-	_, err := collection.UpdateMany(ctx, conditions, data)
+	_ = bson.Unmarshal(tmp, &target)
+	update := bson.M{
+		"$set": target,
+	}
+	_, err := collection.UpdateOne(ctx, conditions, update)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Can't update to DB, something DB is error")
 		return solveError.ErrDB(err)

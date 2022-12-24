@@ -3,12 +3,13 @@ package markBiz
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/student/studentModel"
+	"managerstudent/modules/mark/markModel"
 )
 
 type UpdateResultStore interface {
-	UpdateResult(ctx context.Context, data []studentModel.Result, conditions interface{}) error
+	UpdateResult(ctx context.Context, conditions interface{}, data markModel.Result) error
 }
 
 type updateResultBiz struct {
@@ -16,20 +17,15 @@ type updateResultBiz struct {
 }
 
 func NewUpdateResultBiz(store UpdateResultStore) *updateResultBiz {
-	return &updateResultBiz{store}
+	return &updateResultBiz{store: store}
 }
 
-func (biz *updateResultBiz) UpdateNewResult(ctx context.Context, data []studentModel.Result) error {
-
-	conditions := bson.D{{""}}
-	err := biz.store.UpdateResult(ctx, data, filters)
-
+func (biz *updateResultBiz) UpdateResult(ctx context.Context, data markModel.Result) error {
+	err := biz.store.UpdateResult(ctx, bson.M{"id_student": data.IdStudent}, data)
 	if err != nil {
-		managerLog.ErrorLogger.Println("Can not update result")
-		return err
+		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
+		return solveError.ErrDB(err)
+
 	}
-
-	managerLog.InfoLogger.Println("Update ok")
 	return nil
-
 }
