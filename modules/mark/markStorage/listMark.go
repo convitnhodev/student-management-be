@@ -7,7 +7,7 @@ import (
 	"managerstudent/modules/student/studentModel"
 )
 
-func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}) (*studentModel.Student, error) {
+func (db *mongoStore) ListResultByConditions(ctx context.Context, conditions interface{}) (*studentModel.Result, error) {
 	collection := db.db.Database("ManagerStudent").Collection("Mark")
 
 	dataCursor, err := collection.Find(ctx, conditions)
@@ -20,7 +20,7 @@ func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}) (
 		return nil, solveError.ErrDB(err)
 	}
 
-	var result studentModel.Student
+	var result studentModel.Result
 	if err := dataCursor.All(ctx, &result); err != nil {
 		managerLog.ErrorLogger.Println("Can't find record into DB, something DB is error")
 		return nil, solveError.ErrDB(err)

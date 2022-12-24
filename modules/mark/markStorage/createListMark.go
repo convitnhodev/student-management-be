@@ -7,7 +7,7 @@ import (
 	"managerstudent/modules/mark/markModel"
 )
 
-func (db *mongoStore) CreateListMark(ctx context.Context, data []markModel.Result) error {
+func (db *mongoStore) CreateListResult(ctx context.Context, data []markModel.Result) error {
 	collection := db.db.Database("ManagerStudent").Collection("Result")
 
 	result := make([]interface{}, 0)
