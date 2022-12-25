@@ -6,9 +6,9 @@ type Paging struct {
 	// focus
 	// utilizing form because page, limit, total appear in url
 
-	Page int `json:"page" form:"page"`
+	Page int64 `json:"page" form:"page"`
 	// limit each page
-	Limit int   `json:"limit" form:"limit"`
+	Limit int64 `json:"limit" form:"limit"`
 	Total int64 `json:"total" form:"total"`
 	// support cursor with UID
 	FakeCursor string `json:"cursor" form:"cursor"`
