@@ -211,3 +211,27 @@ ERROR: 2022/12/25 06:16:56 updateMark.go:26: Some thing error in storage user, m
 INFO: 2022/12/25 06:17:38 updateListMark.go:25: update result success, storage return record and nil error
 INFO: 2022/12/25 06:17:50 updateListMark.go:25: update result success, storage return record and nil error
 INFO: 2022/12/25 06:18:36 updateListMark.go:25: update result success, storage return record and nil error
+INFO: 2022/12/25 06:28:37 findStudent.go:18: Cant find record from database
+INFO: 2022/12/25 06:28:37 createNewStudent.go:38: Check student ok, can create currently user
+INFO: 2022/12/25 06:28:37 addStudent.go:18: Insert to DB success
+INFO: 2022/12/25 06:28:37 createNewStudent.go:44: Create student ok
+INFO: 2022/12/25 06:29:09 findStudent.go:18: Cant find record from database
+ERROR: 2022/12/25 06:29:09 getStudent.go:26: Some thing error in storage user, may be from database
+INFO: 2022/12/25 06:29:20 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/25 06:29:20 getStudent.go:30: Get student ok
+INFO: 2022/12/25 07:18:32 findClass.go:18: Cant find record from database
+INFO: 2022/12/25 07:18:32 createNewClass.go:38: Check student ok, can create currently class
+INFO: 2022/12/25 07:18:32 createClass.go:18: Insert to DB success
+INFO: 2022/12/25 07:18:32 createNewClass.go:44: Create class ok
+INFO: 2022/12/25 07:22:41 findClass.go:18: Cant find record from database
+INFO: 2022/12/25 07:22:41 createNewClass.go:38: Check student ok, can create currently class
+INFO: 2022/12/25 07:22:41 createClass.go:18: Insert to DB success
+INFO: 2022/12/25 07:22:41 createNewClass.go:44: Create class ok
+INFO: 2022/12/25 07:24:38 findCourse.go:18: Cant find record from database
+INFO: 2022/12/25 07:24:38 createNewCourse.go:38: Check student ok, can create currently class
+INFO: 2022/12/25 07:24:38 createCourse.go:18: Insert to DB success
+INFO: 2022/12/25 07:24:38 createNewCourse.go:44: Create class ok
+INFO: 2022/12/25 07:24:51 findCourse.go:28: Find record success, storage return record and nil error
+WARNING2022/12/25 07:24:51 createNewCourse.go:34: Class exist
+INFO: 2022/12/25 07:24:58 findClass.go:28: Find record success, storage return record and nil error
+WARNING2022/12/25 07:24:58 createNewClass.go:34: Class exist

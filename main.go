@@ -9,6 +9,8 @@ import (
 	"managerstudent/common/setupDatabase"
 	"managerstudent/component"
 	"managerstudent/component/managerLog"
+	"managerstudent/modules/class/classTransport"
+	"managerstudent/modules/course/courseTransport"
 	"managerstudent/modules/mark/markTransport"
 	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/user/userTransport"
@@ -50,6 +52,16 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		result.GET("/list/student", markTransport.ListResultByIdStudent(appCtx))
 		result.GET("/list/class", markTransport.ListResultByIdClass(appCtx))
 		result.GET("/list/course", markTransport.ListResultByIdCourse(appCtx))
+	}
+
+	class := r.Group("/class")
+	{
+		class.POST("new", classTransport.CreateNewClass(appCtx))
+	}
+
+	course := r.Group("course")
+	{
+		course.POST("new", courseTransport.CreateNewCourse(appCtx))
 	}
 
 	return r.Run(":8080")
