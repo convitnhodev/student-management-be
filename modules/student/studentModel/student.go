@@ -7,4 +7,5 @@ type Student struct {
 	CourseId string `json:"course_id" bson:"course_id"`
 	FullName string `json:"fullName" bson:"fullName"`
 	Mark     Result `json:"mark" bson:"mark"`
+	Acp      bool   `json:"acp" bson:"acp"`
 }

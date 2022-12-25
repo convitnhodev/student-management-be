@@ -17,6 +17,7 @@ type User struct {
 	Token    string      `json:"-" bson:"token"`
 	Phone    string      `json:"phone" bson:"phone"`
 	Gmail    string      `json:"gmail" bson:"gmail"`
+	Acp      bool        `json:"acp" bson:"acp"`
 }
 
 func (user *User) Validate() error {

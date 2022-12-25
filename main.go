@@ -56,12 +56,14 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 
 	class := r.Group("/class")
 	{
-		class.POST("new", classTransport.CreateNewClass(appCtx))
+		class.POST("/new", classTransport.CreateNewClass(appCtx))
+		class.DELETE("/delete", classTransport.DeleteClass(appCtx))
 	}
 
 	course := r.Group("course")
 	{
-		course.POST("new", courseTransport.CreateNewCourse(appCtx))
+		course.POST("/new", courseTransport.CreateNewCourse(appCtx))
+		course.DELETE("/delete", courseTransport.DeleteCourse(appCtx))
 	}
 
 	return r.Run(":8080")
