@@ -3,6 +3,7 @@ package courseBiz
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"managerstudent/common/pubsub"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 )
@@ -12,11 +13,12 @@ type DeleteCourseStore interface {
 }
 
 type deleteCourseBiz struct {
-	store DeleteCourseStore
+	store  DeleteCourseStore
+	pubsub pubsub.Pubsub
 }
 
-func NewDeleteCourseBiz(store DeleteCourseStore) *deleteCourseBiz {
-	return &deleteCourseBiz{store}
+func NewDeleteCourseBiz(store DeleteCourseStore, pubsub pubsub.Pubsub) *deleteCourseBiz {
+	return &deleteCourseBiz{store, pubsub}
 }
 
 func (biz *deleteCourseBiz) DeleteCourse(ctx context.Context, filter interface{}) error {
@@ -24,5 +26,6 @@ func (biz *deleteCourseBiz) DeleteCourse(ctx context.Context, filter interface{}
 		managerLog.ErrorLogger.Println("Some thing error in storage course, may be from database")
 		return solveError.ErrDB(err)
 	}
+	biz.pubsub.Publish(ctx, "deleteCourse", pubsub.NewMessage(filter))
 	return nil
 }

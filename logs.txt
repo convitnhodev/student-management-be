@@ -251,3 +251,85 @@ INFO: 2022/12/25 15:08:28 listClassByCondition.go:30: Find record success, stora
 INFO: 2022/12/25 15:09:34 listClassByCondition.go:30: Find record success, storage return record and nil error
 INFO: 2022/12/25 15:09:45 listClassByCondition.go:30: Find record success, storage return record and nil error
 INFO: 2022/12/25 15:10:00 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:47:18 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:47:18 getStudent.go:30: Get student ok
+INFO: 2022/12/26 07:47:20 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:47:20 getStudent.go:30: Get student ok
+INFO: 2022/12/26 07:47:36 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:47:36 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:47:36 createNewStudent.go:112: Check student ok, can create currently user
+INFO: 2022/12/26 07:47:36 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:47:36 createNewStudent.go:118: Create student ok
+INFO: 2022/12/26 07:47:39 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:47:39 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:47:39 createNewStudent.go:75: Check student ok, can create currently user
+INFO: 2022/12/26 07:47:39 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:47:39 createNewStudent.go:81: Create student ok
+INFO: 2022/12/26 07:50:18 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:50:18 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:50:18 createNewStudent.go:75: Check student ok, can create currently user
+INFO: 2022/12/26 07:50:18 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:50:18 createNewStudent.go:81: Create student ok
+INFO: 2022/12/26 07:50:31 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:50:31 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:50:31 createNewStudent.go:112: Check student ok, can create currently user
+INFO: 2022/12/26 07:50:31 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:50:31 createNewStudent.go:118: Create student ok
+INFO: 2022/12/26 07:51:04 findClass.go:18: Cant find record from database
+INFO: 2022/12/26 07:51:04 createNewClass.go:38: Check student ok, can create currently class
+INFO: 2022/12/26 07:51:04 createClass.go:18: Insert to DB success
+INFO: 2022/12/26 07:51:04 createNewClass.go:44: Create class ok
+INFO: 2022/12/26 07:51:16 findCourse.go:18: Cant find record from database
+INFO: 2022/12/26 07:51:16 createNewCourse.go:38: Check student ok, can create currently class
+INFO: 2022/12/26 07:51:16 createCourse.go:18: Insert to DB success
+INFO: 2022/12/26 07:51:16 createNewCourse.go:44: Create class ok
+INFO: 2022/12/26 07:52:28 deleteStudent.go:28: delete to DB success
+INFO: 2022/12/26 07:53:00 deleteStudent.go:28: delete to DB success
+INFO: 2022/12/26 07:53:35 findStudent.go:18: Cant find record from database
+WARNING2022/12/26 07:53:35 createNewStudent.go:95: Student is not exist
+INFO: 2022/12/26 07:53:43 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:53:43 getStudent.go:30: Get student ok
+INFO: 2022/12/26 07:53:46 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:53:46 getStudent.go:30: Get student ok
+INFO: 2022/12/26 07:53:48 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:53:48 getStudent.go:30: Get student ok
+INFO: 2022/12/26 07:53:53 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:53:53 getStudent.go:30: Get student ok
+INFO: 2022/12/26 07:53:56 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:53:56 getStudent.go:30: Get student ok
+INFO: 2022/12/26 07:54:50 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:54:50 createNewStudent.go:38: Check student ok, can create currently user
+INFO: 2022/12/26 07:54:50 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:54:50 createNewStudent.go:44: Create student ok
+INFO: 2022/12/26 07:54:53 findStudent.go:28: Find record success, storage return record and nil error
+WARNING2022/12/26 07:54:53 createNewStudent.go:34: Student exist
+INFO: 2022/12/26 07:55:00 findStudent.go:28: Find record success, storage return record and nil error
+WARNING2022/12/26 07:55:00 createNewStudent.go:34: Student exist
+INFO: 2022/12/26 07:55:03 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:55:03 createNewStudent.go:38: Check student ok, can create currently user
+INFO: 2022/12/26 07:55:03 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:55:03 createNewStudent.go:44: Create student ok
+INFO: 2022/12/26 07:55:06 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:55:06 createNewStudent.go:38: Check student ok, can create currently user
+INFO: 2022/12/26 07:55:06 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:55:06 createNewStudent.go:44: Create student ok
+INFO: 2022/12/26 07:55:09 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:55:09 createNewStudent.go:38: Check student ok, can create currently user
+INFO: 2022/12/26 07:55:09 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:55:09 createNewStudent.go:44: Create student ok
+INFO: 2022/12/26 07:55:21 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:55:21 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:55:21 createNewStudent.go:112: Check student ok, can create currently user
+INFO: 2022/12/26 07:55:21 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:55:21 createNewStudent.go:118: Create student ok
+INFO: 2022/12/26 07:55:28 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:55:28 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:55:28 createNewStudent.go:112: Check student ok, can create currently user
+INFO: 2022/12/26 07:55:28 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:55:28 createNewStudent.go:118: Create student ok
+INFO: 2022/12/26 07:55:31 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/26 07:55:31 findStudent.go:18: Cant find record from database
+INFO: 2022/12/26 07:55:31 createNewStudent.go:112: Check student ok, can create currently user
+INFO: 2022/12/26 07:55:31 addStudent.go:18: Insert to DB success
+INFO: 2022/12/26 07:55:31 createNewStudent.go:118: Create student ok
+INFO: 2022/12/26 07:55:53 deleteStudent.go:28: delete to DB success

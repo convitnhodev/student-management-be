@@ -18,7 +18,7 @@ func DeleteClass(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(nil))
 		}
 		store := classStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := classBiz.NewDeleteClassBiz(store)
+		biz := classBiz.NewDeleteClassBiz(store, app.GetPubsub())
 		err := biz.DeleteClass(c.Request.Context(), &id)
 		if err != nil {
 			c.JSON(400, err)

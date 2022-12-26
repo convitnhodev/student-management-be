@@ -18,7 +18,7 @@ func DeleteCourse(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(nil))
 		}
 		store := courseStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := courseBiz.NewDeleteCourseBiz(store)
+		biz := courseBiz.NewDeleteCourseBiz(store, app.GetPubsub())
 		err := biz.DeleteCourse(c.Request.Context(), &id)
 		if err != nil {
 			c.JSON(400, err)
@@ -27,4 +27,3 @@ func DeleteCourse(app component.AppContext) gin.HandlerFunc {
 		c.JSON(200, "success")
 	}
 }
-

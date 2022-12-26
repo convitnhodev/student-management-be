@@ -6,6 +6,7 @@ import (
 	"github.com/go-redis/redis"
 	"go.mongodb.org/mongo-driver/mongo"
 	"log"
+	"managerstudent/common/pubsub/localPubsub"
 	"managerstudent/common/setupDatabase"
 	"managerstudent/component"
 	"managerstudent/component/managerLog"
@@ -13,6 +14,7 @@ import (
 	"managerstudent/modules/course/courseTransport"
 	"managerstudent/modules/mark/markTransport"
 	"managerstudent/modules/student/studentTransport"
+	"managerstudent/modules/subcriber"
 	"managerstudent/modules/user/userTransport"
 )
 
@@ -29,8 +31,8 @@ func main() {
 func runService(db *mongo.Client, redis *redis.Client) error {
 	r := gin.Default()
 	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
-	appCtx := component.NewAppContext(db, "Golang", redis, time)
-
+	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
+	subcriber.Setup(appCtx)
 	user := r.Group("/user")
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))

@@ -3,6 +3,7 @@ package component
 import (
 	"github.com/go-redis/redis"
 	"go.mongodb.org/mongo-driver/mongo"
+	"managerstudent/common/pubsub"
 )
 
 type TimeJWT struct {
@@ -15,10 +16,11 @@ type appCtx struct {
 	secret  string
 	redis   *redis.Client
 	TimeJWT TimeJWT
+	pb      pubsub.Pubsub
 }
 
-func NewAppContext(db *mongo.Client, secret string, redis *redis.Client, timeJWT TimeJWT) *appCtx {
-	return &appCtx{db, secret, redis, timeJWT}
+func NewAppContext(db *mongo.Client, secret string, redis *redis.Client, timeJWT TimeJWT, pb pubsub.Pubsub) *appCtx {
+	return &appCtx{db, secret, redis, timeJWT, pb}
 }
 
 func (app *appCtx) GetNewDataMongoDB() (db *mongo.Client) {
@@ -38,8 +40,13 @@ type AppContext interface {
 	GetSecret() (secret string)
 	GetRedis() (redis *redis.Client)
 	GetTimeJWT() TimeJWT
+	GetPubsub() pubsub.Pubsub
 }
 
 func (ctx *appCtx) GetTimeJWT() TimeJWT {
 	return ctx.TimeJWT
+}
+
+func (ctx *appCtx) GetPubsub() pubsub.Pubsub {
+	return ctx.pb
 }
