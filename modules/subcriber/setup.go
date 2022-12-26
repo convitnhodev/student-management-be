@@ -8,4 +8,5 @@ import (
 func Setup(ctx component.AppContext) {
 	DeleteStudentInClassAfterDeleteClass(ctx, context.Background())
 	DeleteStudentInCourseAfterDeleteCourse(ctx, context.Background())
+	SendNotifyAfterUserRegister(ctx, context.Background())
 }

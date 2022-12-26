@@ -333,3 +333,35 @@ INFO: 2022/12/26 07:55:31 createNewStudent.go:112: Check student ok, can create 
 INFO: 2022/12/26 07:55:31 addStudent.go:18: Insert to DB success
 INFO: 2022/12/26 07:55:31 createNewStudent.go:118: Create student ok
 INFO: 2022/12/26 07:55:53 deleteStudent.go:28: delete to DB success
+INFO: 2022/12/26 08:17:33 findUser.go:18: Cant find record from database
+INFO: 2022/12/26 08:17:33 createNewUser.go:44: Check user ok, can create currently user
+INFO: 2022/12/26 08:17:33 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/26 08:17:33 createNewUser.go:61: Create user ok
+INFO: 2022/12/26 08:18:35 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/26 08:18:35 createNewUser.go:40: User's not new
+INFO: 2022/12/26 08:18:36 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/26 08:18:36 createNewUser.go:40: User's not new
+INFO: 2022/12/26 08:18:38 findUser.go:18: Cant find record from database
+INFO: 2022/12/26 08:18:38 createNewUser.go:44: Check user ok, can create currently user
+INFO: 2022/12/26 08:18:38 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/26 08:18:38 createNewUser.go:61: Create user ok
+INFO: 2022/12/26 08:19:38 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/26 08:19:38 createNewUser.go:40: User's not new
+INFO: 2022/12/26 08:19:41 findUser.go:18: Cant find record from database
+INFO: 2022/12/26 08:19:41 createNewUser.go:44: Check user ok, can create currently user
+INFO: 2022/12/26 08:19:41 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/26 08:19:41 createNewUser.go:61: Create user ok
+INFO: 2022/12/26 08:20:24 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/26 08:20:24 createNewUser.go:40: User's not new
+INFO: 2022/12/26 08:20:28 findUser.go:18: Cant find record from database
+INFO: 2022/12/26 08:20:28 createNewUser.go:44: Check user ok, can create currently user
+INFO: 2022/12/26 08:20:28 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/26 08:20:28 createNewUser.go:61: Create user ok
+INFO: 2022/12/26 08:20:28 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/26 08:21:19 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/26 08:21:19 createNewUser.go:40: User's not new
+INFO: 2022/12/26 08:21:21 findUser.go:18: Cant find record from database
+INFO: 2022/12/26 08:21:21 createNewUser.go:44: Check user ok, can create currently user
+INFO: 2022/12/26 08:21:21 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/26 08:21:21 createNewUser.go:61: Create user ok
+INFO: 2022/12/26 08:21:21 createNewNotify.go:17: Insert to DB success

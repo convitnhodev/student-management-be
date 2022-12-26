@@ -19,7 +19,7 @@ func UserRegister(app component.AppContext) gin.HandlerFunc {
 		//
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
 		md5 := Hash_local.NewHashInfo()
-		biz := userBiz.NewCreateUserBiz(store, md5)
+		biz := userBiz.NewCreateUserBiz(store, md5, app.GetPubsub())
 		if err := biz.CreateNewUser(c.Request.Context(), &data); err != nil {
 			c.JSON(400, err)
 			return
