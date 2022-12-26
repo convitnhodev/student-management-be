@@ -2,10 +2,14 @@ package studentBiz
 
 import (
 	"context"
+	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
+	"managerstudent/common/pubsub"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
+	"managerstudent/modules/notifedProvider/notifyModel"
 	"managerstudent/modules/student/studentModel"
+	"time"
 )
 
 type AddStudentStore interface {
@@ -14,14 +18,15 @@ type AddStudentStore interface {
 }
 
 type addStudentBiz struct {
-	store AddStudentStore
+	store  AddStudentStore
+	pubsub pubsub.Pubsub
 }
 
-func NewAddStudentBiz(store AddStudentStore) *addStudentBiz {
-	return &addStudentBiz{store: store}
+func NewAddStudentBiz(store AddStudentStore, pubsub pubsub.Pubsub) *addStudentBiz {
+	return &addStudentBiz{store: store, pubsub: pubsub}
 }
 
-func (biz *addStudentBiz) AddStudentTo(ctx context.Context, data *studentModel.Student) error {
+func (biz *addStudentBiz) AddStudent(ctx context.Context, data *studentModel.Student) error {
 	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, "student")
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
@@ -55,6 +60,14 @@ func (biz *addStudentBiz) AddStudentToCourse(ctx context.Context, data *studentM
 	}
 
 	if student == nil {
+		notify := notifyModel.Notify{
+			Content: fmt.Sprint(" yeu cau them hoc sinh co ma so sinh vien ", data.Id),
+			Passive: data.Id,
+			Seen:    false,
+			Time:    time.Now(),
+		}
+
+		biz.pubsub.Publish(ctx, "AddStudentToCourseNotify", pubsub.NewMessage(notify))
 		managerLog.WarningLogger.Println("Student is not exist")
 		return solveError.ErrEntityNotExisted("Student", nil)
 	}
@@ -87,11 +100,21 @@ func (biz *addStudentBiz) AddStudentToClass(ctx context.Context, data *studentMo
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage, may be from database")
+
 			return solveError.ErrDB(err)
 		}
 	}
 
 	if student == nil {
+
+		notify := notifyModel.Notify{
+			Content: fmt.Sprint(" yeu cau them hoc sinh co ma so sinh vien ", data.Id),
+			Passive: data.Id,
+			Seen:    false,
+			Time:    time.Now(),
+		}
+
+		biz.pubsub.Publish(ctx, "AddStudentToClassNotify", pubsub.NewMessage(notify))
 		managerLog.WarningLogger.Println("Student is not exist")
 		return solveError.ErrEntityNotExisted("Student", nil)
 	}

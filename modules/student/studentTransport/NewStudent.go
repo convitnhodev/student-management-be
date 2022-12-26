@@ -16,8 +16,8 @@ func AddStudent(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := studentBiz.NewAddStudentBiz(store)
-		if err := biz.AddStudentTo(c.Request.Context(), &student); err != nil {
+		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
+		if err := biz.AddStudent(c.Request.Context(), &student); err != nil {
 			c.JSON(400, err)
 			return
 		}
@@ -32,7 +32,7 @@ func AddStudentToClass(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := studentBiz.NewAddStudentBiz(store)
+		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
 		if err := biz.AddStudentToClass(c.Request.Context(), &student); err != nil {
 			c.JSON(400, err)
 			return
@@ -48,7 +48,7 @@ func AddStudentToCourse(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := studentBiz.NewAddStudentBiz(store)
+		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
 		if err := biz.AddStudentToCourse(c.Request.Context(), &student); err != nil {
 			c.JSON(400, err)
 			return

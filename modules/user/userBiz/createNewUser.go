@@ -11,6 +11,7 @@ import (
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/notifedProvider/notifyModel"
 	"managerstudent/modules/user/userModel"
+	"time"
 )
 
 type CreateUserStore interface {
@@ -55,6 +56,7 @@ func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.Use
 		Content: fmt.Sprint(data.UserName, " yeu cau dang ki tai khoan"),
 		Agent:   data.UserName,
 		Seen:    false,
+		Time:    time.Now(),
 	}
 	biz.pubsub.Publish(ctx, "registerNotify", pubsub.NewMessage(notify))
 
