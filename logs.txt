@@ -235,3 +235,19 @@ INFO: 2022/12/25 07:24:51 findCourse.go:28: Find record success, storage return 
 WARNING2022/12/25 07:24:51 createNewCourse.go:34: Class exist
 INFO: 2022/12/25 07:24:58 findClass.go:28: Find record success, storage return record and nil error
 WARNING2022/12/25 07:24:58 createNewClass.go:34: Class exist
+INFO: 2022/12/25 14:49:48 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:51:25 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:51:40 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:51:43 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:51:49 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:51:53 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:52:01 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:54:52 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:55:02 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 14:55:03 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 15:00:52 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 15:08:11 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 15:08:28 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 15:09:34 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 15:09:45 listClassByCondition.go:30: Find record success, storage return record and nil error
+INFO: 2022/12/25 15:10:00 listClassByCondition.go:30: Find record success, storage return record and nil error

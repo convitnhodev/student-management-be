@@ -5,7 +5,6 @@ type Role int
 const (
 	Student Role = iota
 	Teacher
-	AssistantPrincipal
 	Headmaster
 )
 
