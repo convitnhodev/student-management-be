@@ -13,6 +13,7 @@ import (
 	"managerstudent/modules/class/classTransport"
 	"managerstudent/modules/course/courseTransport"
 	"managerstudent/modules/mark/markTransport"
+	"managerstudent/modules/notifedProvider/notifyTransport"
 	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/subcriber"
 	"managerstudent/modules/user/userTransport"
@@ -68,6 +69,12 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		course.POST("/new", courseTransport.CreateNewCourse(appCtx))
 		course.DELETE("/delete", courseTransport.DeleteCourse(appCtx))
 		course.GET("/list", courseTransport.ListCourses(appCtx))
+	}
+
+	notify := r.Group("/notify")
+	{
+		notify.GET("/get", notifyTransport.GetNotify(appCtx))
+		notify.POST("/acp", notifyTransport.AdminAcpNotify(appCtx))
 	}
 
 	return r.Run(":8080")

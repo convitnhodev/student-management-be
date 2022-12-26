@@ -4,10 +4,9 @@ import (
 	"context"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/notifedProvider/notifyModel"
 )
 
-func (db *mongoStore) SolveNotify(ctx context.Context, data *notifyModel.Notify, conditions interface{}, value interface{}) error {
+func (db *mongoStore) SolveNotify(ctx context.Context, conditions interface{}, value interface{}) error {
 	collection := db.db.Database("ManagerStudent").Collection("Notify")
 	//filter := bson.D{{"id", data.Id}}
 	//update := bson.D{{"$set", bson.D{{"status", value}}}}
