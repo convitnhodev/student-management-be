@@ -7,20 +7,20 @@ import (
 	"managerstudent/modules/notifedProvider/notifyModel"
 )
 
-type AcpNotifyStore interface {
+type AcpNotifyUserRegisterStore interface {
 	SolveNotify(ctx context.Context, conditions interface{}, value interface{}) error
 }
 
-type acpNotifyBiz struct {
-	store  AcpNotifyStore
+type acpNotifyUserRegisterBiz struct {
+	store  AcpNotifyUserRegisterStore
 	pubsub pubsub.Pubsub
 }
 
-func NewAcpNotifyBiz(store AcpNotifyStore, pubsub pubsub.Pubsub) *acpNotifyBiz {
-	return &acpNotifyBiz{store: store, pubsub: pubsub}
+func NewAcpNotifyUserRegisterBiz(store AcpNotifyUserRegisterStore, pubsub pubsub.Pubsub) *acpNotifyUserRegisterBiz {
+	return &acpNotifyUserRegisterBiz{store: store, pubsub: pubsub}
 }
 
-func (biz *acpNotifyBiz) AcpNotify(ctx context.Context, data *notifyModel.Notify, status int) error {
+func (biz *acpNotifyUserRegisterBiz) AcpNotifyUserRegister(ctx context.Context, data *notifyModel.Notify, status int) error {
 	data.Status = status
 
 	filter := bson.D{{"id", data.Id}}

@@ -10,12 +10,12 @@ import (
 	"strconv"
 )
 
-func AdminAcpNotify(app component.AppContext) gin.HandlerFunc {
+func AdminAcpNotifyUserRegister(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var status int
 		var ok bool
 
-		tmp, ok := c.GetQuery("id")
+		tmp, ok := c.GetQuery("status")
 		status, _ = strconv.Atoi(tmp)
 		if !ok {
 			panic(solveError.ErrInvalidRequest(nil))
@@ -28,8 +28,8 @@ func AdminAcpNotify(app component.AppContext) gin.HandlerFunc {
 
 		//
 		store := notifyStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := notifyBiz.NewAcpNotifyBiz(store, app.GetPubsub())
-		if err := biz.AcpNotify(c.Request.Context(), &data, status); err != nil {
+		biz := notifyBiz.NewAcpNotifyUserRegisterBiz(store, app.GetPubsub())
+		if err := biz.AcpNotifyUserRegister(c.Request.Context(), &data, status); err != nil {
 			c.JSON(400, err)
 			return
 		}

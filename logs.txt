@@ -389,3 +389,55 @@ WARNING2022/12/26 08:45:47 createNewStudent.go:71: Student is not exist
 INFO: 2022/12/26 08:47:59 findStudent.go:18: Cant find record from database
 WARNING2022/12/26 08:47:59 createNewStudent.go:71: Student is not exist
 INFO: 2022/12/26 08:47:59 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/26 23:04:00 findUser.go:18: Cant find record from database
+INFO: 2022/12/26 23:04:00 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/26 23:04:00 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/26 23:04:00 createNewUser.go:63: Create user ok
+INFO: 2022/12/26 23:04:00 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/26 23:04:42 findUser.go:18: Cant find record from database
+INFO: 2022/12/26 23:04:42 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/26 23:04:42 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/26 23:04:42 createNewUser.go:63: Create user ok
+INFO: 2022/12/26 23:04:42 createNewNotify.go:17: Insert to DB success
+ERROR: 2022/12/26 23:05:40 getNotify.go:18: Can't Insert to DB, something DB is error
+INFO: 2022/12/26 23:06:35 getNotify.go:21: Insert to DB success
+INFO: 2022/12/26 23:06:35 getNotify.go:25: Find record success, storage return record and nil error
+INFO: 2022/12/26 23:07:39 SolveNotify.go:19: update result success, storage return record and nil error
+INFO: 2022/12/28 03:12:58 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 03:12:58 findStudent.go:18: Cant find record from database
+INFO: 2022/12/28 03:12:58 createNewStudent.go:140: Check student ok, can create currently user
+INFO: 2022/12/28 03:12:58 addStudent.go:18: Insert to DB success
+INFO: 2022/12/28 03:12:58 createNewStudent.go:146: Create student ok
+INFO: 2022/12/28 03:13:03 findStudent.go:18: Cant find record from database
+WARNING2022/12/28 03:13:03 createNewStudent.go:123: Student is not exist
+INFO: 2022/12/28 03:13:03 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/28 03:15:41 findStudent.go:18: Cant find record from database
+WARNING2022/12/28 03:15:41 createNewStudent.go:126: Student is not exist
+INFO: 2022/12/28 03:15:41 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/28 03:16:19 SolveNotify.go:19: update result success, storage return record and nil error
+INFO: 2022/12/28 03:18:40 SolveNotify.go:19: update result success, storage return record and nil error
+INFO: 2022/12/28 03:18:55 SolveNotify.go:19: update result success, storage return record and nil error
+INFO: 2022/12/28 03:18:55 updateStudent.go:17: update result success, storage return record and nil error
+INFO: 2022/12/28 03:22:07 findStudent.go:18: Cant find record from database
+WARNING2022/12/28 03:22:07 createNewStudent.go:126: Student is not exist
+INFO: 2022/12/28 03:22:07 findStudent.go:18: Cant find record from database
+INFO: 2022/12/28 03:22:07 createNewStudent.go:142: Check student ok, can create currently user
+INFO: 2022/12/28 03:22:07 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/28 03:22:07 addStudent.go:18: Insert to DB success
+INFO: 2022/12/28 03:22:07 createNewStudent.go:148: Create student ok
+INFO: 2022/12/28 03:22:33 SolveNotify.go:19: update result success, storage return record and nil error
+INFO: 2022/12/28 03:22:33 updateStudent.go:17: update result success, storage return record and nil error
+INFO: 2022/12/28 03:27:01 findStudent.go:18: Cant find record from database
+WARNING2022/12/28 03:27:01 createNewStudent.go:78: Student is not exist
+INFO: 2022/12/28 03:27:01 findStudent.go:18: Cant find record from database
+INFO: 2022/12/28 03:27:01 createNewStudent.go:96: Check student ok, can create currently user
+INFO: 2022/12/28 03:27:01 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/28 03:27:01 addStudent.go:18: Insert to DB success
+INFO: 2022/12/28 03:27:01 createNewStudent.go:102: Create student ok
+INFO: 2022/12/28 03:27:07 findStudent.go:18: Cant find record from database
+WARNING2022/12/28 03:27:07 createNewStudent.go:134: Student is not exist
+INFO: 2022/12/28 03:27:07 findStudent.go:18: Cant find record from database
+INFO: 2022/12/28 03:27:07 createNewStudent.go:151: Check student ok, can create currently user
+INFO: 2022/12/28 03:27:07 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/28 03:27:07 addStudent.go:18: Insert to DB success
+INFO: 2022/12/28 03:27:07 createNewStudent.go:157: Create student ok

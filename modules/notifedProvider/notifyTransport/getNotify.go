@@ -20,7 +20,6 @@ func GetNotify(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(nil))
 		}
 
-		//
 		store := notifyStorage.NewMongoStore(app.GetNewDataMongoDB())
 		biz := notifyBiz.NewGetNotifyBiz(store, app.GetPubsub())
 		data, err := biz.GetNotify(c, id)

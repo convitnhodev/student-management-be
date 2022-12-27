@@ -12,4 +12,5 @@ func Setup(ctx component.AppContext) {
 	SendNotifyAfterAddStudentToCourse(ctx, context.Background())
 	SendNotifyAfterAddStudentToClass(ctx, context.Background())
 	ChangeAcpUserAfterChangeNotify(ctx, context.Background())
+	ChangeAcpStudentAfterChangeNotify(ctx, context.Background())
 }

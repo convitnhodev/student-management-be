@@ -13,7 +13,7 @@ func (db *mongoStore) GetNotify(ctx context.Context, conditions interface{}) (*n
 
 	var data bson.M
 
-	err := collection.FindOne(ctx, conditions).Decode(data)
+	err := collection.FindOne(ctx, conditions).Decode(&data)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Can't Insert to DB, something DB is error")
 		return nil, solveError.ErrDB(err)

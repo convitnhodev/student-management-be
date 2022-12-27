@@ -50,6 +50,10 @@ func ErrDB(err error) *AppError {
 	return NewErrorResponse(err, "some thing went wrong with DB", err.Error(), "DB_ERR")
 }
 
+func ErrWaitingAdminAcp(err error) *AppError {
+	return NewErrorResponse(err, "waiting admin acp", err.Error(), "AD_ACP")
+}
+
 func ErrInvalidRequest(err error) *AppError {
 	return NewErrorResponse(err, "invalid request", err.Error(), "Invalid_request")
 }
