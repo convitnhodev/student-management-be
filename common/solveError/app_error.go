@@ -62,6 +62,10 @@ func ErrInternal(err error) *AppError {
 	return NewFullErrorResponse(http.StatusInternalServerError, err, "internal error", err.Error(), "Internal_ERR")
 }
 
+func ErrInvalidLogin(err error) *AppError {
+	return NewFullErrorResponse(http.StatusBadRequest, err, "user or password invalid", err.Error(), "Internal_ERR")
+}
+
 // 401, Unauthorrize
 func NewUnauthorized(root error, msg, key string) *AppError {
 	return &AppError{

@@ -37,6 +37,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	user := r.Group("/user")
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))
+		user.POST("/login", userTransport.Login(appCtx))
 		user.GET("list", userTransport.ListUsers(appCtx))
 	}
 	student := r.Group("/student")

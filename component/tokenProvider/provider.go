@@ -2,6 +2,7 @@ package tokenProvider
 
 import (
 	"errors"
+	_const "managerstudent/common/const"
 	"managerstudent/common/solveError"
 	"time"
 )
@@ -53,5 +54,6 @@ type Account struct {
 }
 
 type TokenPayload struct {
-	UserName string `json:"user_name" bson:"user_name,omitempty"`
+	UserName string      `json:"user_name" bson:"user_name,omitempty"`
+	Role     _const.Role `json:"role" bson:"role"`
 }

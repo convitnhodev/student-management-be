@@ -457,3 +457,22 @@ INFO: 2022/12/28 03:30:16 SolveNotify.go:19: update result success, storage retu
 INFO: 2022/12/28 03:30:16 updateStudent.go:17: update result success, storage return record and nil error
 INFO: 2022/12/28 03:45:03 listUserByConditions.go:31: Find record success, storage return record and nil error
 INFO: 2022/12/28 03:45:38 listUserByConditions.go:31: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:14:50 findUser.go:18: Cant find record from database
+INFO: 2022/12/28 10:14:50 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 10:14:50 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/28 10:14:50 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 10:14:50 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/28 10:15:22 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:15:45 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:15:52 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:15:59 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:17:13 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:19:07 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:19:20 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:19:46 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:21:47 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:24:30 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:25:20 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:26:05 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:27:24 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 10:27:34 findUser.go:28: Find record success, storage return record and nil error
