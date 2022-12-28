@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-func GetNotify(app component.AppContext) gin.HandlerFunc {
+func GetNotification(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var id int
 		var ok bool
@@ -22,7 +22,7 @@ func GetNotify(app component.AppContext) gin.HandlerFunc {
 
 		store := notifyStorage.NewMongoStore(app.GetNewDataMongoDB())
 		biz := notifyBiz.NewGetNotifyBiz(store, app.GetPubsub())
-		data, err := biz.GetNotify(c, id)
+		data, err := biz.GetNotification(c, id)
 		if err != nil {
 			c.JSON(400, err)
 			return

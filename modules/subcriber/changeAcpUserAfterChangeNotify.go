@@ -19,7 +19,7 @@ func ChangeAcpUserAfterChangeNotify(appCtx component.AppContext, ctx context.Con
 		for {
 
 			msg := <-c
-			notify := msg.Data().(notifyModel.Notify)
+			notify := msg.Data().(notifyModel.Notification)
 			_ = store.UpdateUser(ctx, bson.D{{"user_name", notify.Agent}}, bson.D{{"$set", bson.D{{"acp", true}}}})
 		}
 	}()

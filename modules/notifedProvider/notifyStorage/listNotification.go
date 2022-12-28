@@ -9,8 +9,8 @@ import (
 	"managerstudent/modules/notifedProvider/notifyModel"
 )
 
-func (db *mongoStore) ListNotificationsByConditions(ctx context.Context, conditions interface{}, page *paging.Paging) ([]notifyModel.Notify, error) {
-	collection := db.db.Database("ManagerStudent").Collection("Notify")
+func (db *mongoStore) ListNotificationsByConditions(ctx context.Context, conditions interface{}, page *paging.Paging) ([]notifyModel.Notification, error) {
+	collection := db.db.Database("ManagerStudent").Collection("Notification")
 
 	opstions := new(options.FindOptions)
 	opstions.SetLimit(page.Limit)
@@ -22,7 +22,7 @@ func (db *mongoStore) ListNotificationsByConditions(ctx context.Context, conditi
 		return nil, solveError.ErrDB(err)
 	}
 
-	var notifications []notifyModel.Notify
+	var notifications []notifyModel.Notification
 
 	if err := dataCursor.All(ctx, &notifications); err != nil {
 		managerLog.ErrorLogger.Println("Can't find record into DB, something DB is error")

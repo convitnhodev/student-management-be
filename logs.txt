@@ -476,3 +476,19 @@ INFO: 2022/12/28 10:25:20 findUser.go:28: Find record success, storage return re
 INFO: 2022/12/28 10:26:05 findUser.go:28: Find record success, storage return record and nil error
 INFO: 2022/12/28 10:27:24 findUser.go:28: Find record success, storage return record and nil error
 INFO: 2022/12/28 10:27:34 findUser.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/28 13:45:53 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/28 13:45:53 createNewUser.go:41: User's not new
+INFO: 2022/12/28 13:46:02 findUser.go:18: Cant find record from database
+INFO: 2022/12/28 13:46:02 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 13:46:02 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/28 13:46:02 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 13:46:02 createNewNotify.go:17: Insert to DB success
+INFO: 2022/12/28 13:46:06 findUser.go:18: Cant find record from database
+INFO: 2022/12/28 13:46:06 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 13:46:06 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/28 13:46:06 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 13:46:06 createNewNotify.go:17: Insert to DB success
+ERROR: 2022/12/28 13:46:47 listNotify.go:21: Can't find record into DB, something DB is error
+INFO: 2022/12/28 13:49:01 listNotify.go:31: Find record success, storage return record and nil error
+INFO: 2022/12/28 13:49:16 listNotify.go:31: Find record success, storage return record and nil error
+INFO: 2022/12/28 13:49:33 listNotify.go:31: Find record success, storage return record and nil error

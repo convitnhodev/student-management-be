@@ -19,7 +19,7 @@ func ChangeAcpStudentAfterChangeNotify(appCtx component.AppContext, ctx context.
 		for {
 
 			msg := <-c
-			notify := msg.Data().(*notifyModel.Notify)
+			notify := msg.Data().(*notifyModel.Notification)
 			var location string
 			if notify.Location == "Class" {
 				location = "student_class"

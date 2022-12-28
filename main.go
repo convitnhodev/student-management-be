@@ -75,7 +75,8 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 
 	notify := r.Group("/notify")
 	{
-		notify.GET("/get", notifyTransport.GetNotify(appCtx))
+		notify.GET("/get", notifyTransport.GetNotification(appCtx))
+		notify.GET("/list", notifyTransport.ListNotifications(appCtx))
 		notify.POST("/acp/user", notifyTransport.AdminAcpNotifyUserRegister(appCtx))
 		notify.POST("/acp/student", notifyTransport.AdminAcpNotifyRequestAddStudent(appCtx))
 	}

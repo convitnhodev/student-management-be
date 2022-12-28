@@ -52,7 +52,7 @@ func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.Use
 		return solveError.ErrDB(err)
 	}
 
-	notify := notifyModel.Notify{
+	notify := notifyModel.Notification{
 		Content: fmt.Sprint(data.UserName, " yeu cau dang ki tai khoan"),
 		Agent:   data.UserName,
 		Seen:    false,

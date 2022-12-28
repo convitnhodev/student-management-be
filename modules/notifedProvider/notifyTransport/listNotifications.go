@@ -2,13 +2,13 @@ package notifyTransport
 
 import (
 	"github.com/gin-gonic/gin"
+	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/paging"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
-	"managerstudent/modules/user/userBiz"
-	"managerstudent/modules/user/userModel"
-	"managerstudent/modules/user/userStorage"
+	"managerstudent/modules/notifedProvider/notifyBiz"
+	"managerstudent/modules/notifedProvider/notifyStorage"
 )
 
 func ListNotifications(app component.AppContext) gin.HandlerFunc {
@@ -18,14 +18,9 @@ func ListNotifications(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 
-		var filter userModel.Filter
-		if err := c.BindJSON(&filter); err != nil {
-			panic(solveError.ErrInvalidRequest(err))
-		}
-
-		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := userBiz.NewListUsersBiz(store)
-		data, err := biz.ListUsers(c.Request.Context(), filter, &page)
+		store := notifyStorage.NewMongoStore(app.GetNewDataMongoDB())
+		biz := notifyBiz.NewListNotificationsBiz(store)
+		data, err := biz.ListNotifications(c.Request.Context(), bson.D{}, &page)
 		if err != nil {
 			c.JSON(400, err)
 			return

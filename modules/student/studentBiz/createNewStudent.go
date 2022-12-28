@@ -63,7 +63,7 @@ func (biz *addStudentBiz) AddStudentToCourse(ctx context.Context, data *studentM
 
 	if student == nil {
 		location := "Course"
-		notify := notifyModel.Notify{
+		notify := notifyModel.Notification{
 			Content:  fmt.Sprint(" yeu cau them hoc sinh co ma so sinh vien ", data.Id, "vao khoa hoc"),
 			Passive:  data.Id,
 			Seen:     false,
@@ -119,7 +119,7 @@ func (biz *addStudentBiz) AddStudentToClass(ctx context.Context, data *studentMo
 	if student == nil {
 		location := "Class"
 
-		notify := notifyModel.Notify{
+		notify := notifyModel.Notification{
 			Content:  fmt.Sprint(" yeu cau them hoc sinh co ma so sinh vien ", data.Id, "vao lop"),
 			Passive:  data.Id,
 			Seen:     false,

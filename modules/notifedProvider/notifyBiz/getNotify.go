@@ -8,7 +8,7 @@ import (
 )
 
 type GetNotifyStore interface {
-	GetNotify(ctx context.Context, conditions interface{}) (*notifyModel.Notify, error)
+	GetNotification(ctx context.Context, conditions interface{}) (*notifyModel.Notification, error)
 }
 
 type getNotifyBiz struct {
@@ -20,9 +20,9 @@ func NewGetNotifyBiz(store GetNotifyStore, pubsub pubsub.Pubsub) *getNotifyBiz {
 	return &getNotifyBiz{store: store, pubsub: pubsub}
 }
 
-func (biz *getNotifyBiz) GetNotify(ctx context.Context, filter interface{}) (*notifyModel.Notify, error) {
+func (biz *getNotifyBiz) GetNotification(ctx context.Context, filter interface{}) (*notifyModel.Notification, error) {
 
-	data, err := biz.store.GetNotify(ctx, bson.M{"id": filter})
+	data, err := biz.store.GetNotification(ctx, bson.M{"id": filter})
 	if err != nil {
 		return nil, err
 	}

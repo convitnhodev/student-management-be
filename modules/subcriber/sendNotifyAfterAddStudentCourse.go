@@ -17,8 +17,8 @@ func SendNotifyAfterAddStudentToCourse(appCtx component.AppContext, ctx context.
 		defer solveError.AppRecover()
 		for {
 			msg := <-c
-			notify := msg.Data().(notifyModel.Notify)
-			_ = store.CreateNewNotify(ctx, &notify)
+			notify := msg.Data().(notifyModel.Notification)
+			_ = store.CreateNewNotification(ctx, &notify)
 		}
 	}()
 }

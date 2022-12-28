@@ -2,7 +2,7 @@ package notifyModel
 
 import "time"
 
-type Notify struct {
+type Notification struct {
 	Id       int       `json:"id" bson:"id"`
 	Content  string    `json:"content" bson:"content"`
 	Agent    string    `json:"agent" bson:"agent"`

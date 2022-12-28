@@ -8,18 +8,18 @@ import (
 	"managerstudent/modules/notifedProvider/notifyModel"
 )
 
-func (db *mongoStore) GetNotify(ctx context.Context, conditions interface{}) (*notifyModel.Notify, error) {
-	collection := db.db.Database("ManagerStudent").Collection("Notify")
+func (db *mongoStore) GetNotification(ctx context.Context, conditions interface{}) (*notifyModel.Notification, error) {
+	collection := db.db.Database("ManagerStudent").Collection("Notification")
 
 	var data bson.M
 
 	err := collection.FindOne(ctx, conditions).Decode(&data)
 	if err != nil {
-		managerLog.ErrorLogger.Println("Can't Insert to DB, something DB is error")
+		managerLog.ErrorLogger.Println("Can't find notification from DB, something DB is error")
 		return nil, solveError.ErrDB(err)
 	}
-	managerLog.InfoLogger.Println("Insert to DB success")
-	var result notifyModel.Notify
+	managerLog.InfoLogger.Println("get info from DB success")
+	var result notifyModel.Notification
 	bsonBytes, _ := bson.Marshal(data)
 	bson.Unmarshal(bsonBytes, &result)
 	managerLog.InfoLogger.Println("Find record success, storage return record and nil error")

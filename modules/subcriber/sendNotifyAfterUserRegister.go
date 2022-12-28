@@ -17,8 +17,8 @@ func SendNotifyAfterUserRegister(appCtx component.AppContext, ctx context.Contex
 		defer solveError.AppRecover()
 		for {
 			msg := <-c
-			notify := msg.Data().(notifyModel.Notify)
-			_ = store.CreateNewNotify(ctx, &notify)
+			notify := msg.Data().(notifyModel.Notification)
+			_ = store.CreateNewNotification(ctx, &notify)
 		}
 	}()
 }
