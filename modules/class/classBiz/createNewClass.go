@@ -25,7 +25,7 @@ func (biz *createClassBiz) CreateNewClass(ctx context.Context, data *classModel.
 	class, err := biz.store.FindClass(ctx, bson.M{"class_id": data.Id})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
-			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
+			managerLog.ErrorLogger.Println("Some thing error in storage class, may be from database")
 			return solveError.ErrDB(err)
 		}
 	}
@@ -45,7 +45,3 @@ func (biz *createClassBiz) CreateNewClass(ctx context.Context, data *classModel.
 	return nil
 
 }
-
-
-
-

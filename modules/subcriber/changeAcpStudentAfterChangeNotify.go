@@ -5,7 +5,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
-	"managerstudent/modules/notifedProvider/notifyModel"
+	"managerstudent/modules/notifedProvider/notificationModel"
+	"managerstudent/modules/student/studentModel"
 	"managerstudent/modules/student/studentStorage"
 )
 
@@ -19,12 +20,12 @@ func ChangeAcpStudentAfterChangeNotify(appCtx component.AppContext, ctx context.
 		for {
 
 			msg := <-c
-			notify := msg.Data().(*notifyModel.Notification)
+			notify := msg.Data().(*notificationModel.Notification)
 			var location string
 			if notify.Location == "Class" {
-				location = "student_class"
+				location = studentModel.Student_Class_Collection
 			} else {
-				location = "student_course"
+				location = studentModel.Student_Course_Collection
 			}
 			_ = store.UpdateStudent(ctx, bson.D{{"id", notify.Passive}}, bson.D{{"$set", bson.D{{"acp", true}}}}, location)
 		}

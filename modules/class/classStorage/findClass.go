@@ -3,13 +3,14 @@ package classStorage
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/class/classModel"
 )
 
 func (db *mongoStore) FindClass(ctx context.Context, conditions interface{}) (*classModel.Class, error) {
-	collection := db.db.Database("ManagerStudent").Collection("Class")
+	collection := db.db.Database(setupDatabase.NameDB).Collection(classModel.NameCollection)
 
 	var data bson.M
 

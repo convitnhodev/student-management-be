@@ -5,7 +5,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
-	"managerstudent/modules/notifedProvider/notifyModel"
+	"managerstudent/modules/notifedProvider/notificationModel"
 	"managerstudent/modules/user/userStorage"
 )
 
@@ -19,7 +19,7 @@ func ChangeAcpUserAfterChangeNotify(appCtx component.AppContext, ctx context.Con
 		for {
 
 			msg := <-c
-			notify := msg.Data().(notifyModel.Notification)
+			notify := msg.Data().(*notificationModel.Notification)
 			_ = store.UpdateUser(ctx, bson.D{{"user_name", notify.Agent}}, bson.D{{"$set", bson.D{{"acp", true}}}})
 		}
 	}()

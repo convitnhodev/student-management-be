@@ -1,5 +1,7 @@
 package courseModel
 
+const NameCollection = "Courses"
+
 type Course struct {
 	Id           string `json:"course_id,omitempty" bson:"course_id"`
 	SubjectTitle string `json:"subject_title" bson:"subjectTitle"`

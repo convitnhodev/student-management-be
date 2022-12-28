@@ -4,13 +4,14 @@ import (
 	"context"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"managerstudent/common/paging"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/course/courseModel"
 )
 
 func (db *mongoStore) ListCourses(ctx context.Context, conditions interface{}, page *paging.Paging) ([]courseModel.Course, error) {
-	collection := db.db.Database("ManagerStudent").Collection("Course")
+	collection := db.db.Database(setupDatabase.NameDB).Collection(courseModel.NameCollection)
 
 	opstions := new(options.FindOptions)
 	opstions.SetLimit(page.Limit)

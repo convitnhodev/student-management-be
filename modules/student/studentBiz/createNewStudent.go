@@ -7,7 +7,7 @@ import (
 	"managerstudent/common/pubsub"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/notifedProvider/notifyModel"
+	"managerstudent/modules/notifedProvider/notificationModel"
 	"managerstudent/modules/student/studentModel"
 	"time"
 )
@@ -27,7 +27,7 @@ func NewAddStudentBiz(store AddStudentStore, pubsub pubsub.Pubsub) *addStudentBi
 }
 
 func (biz *addStudentBiz) AddStudent(ctx context.Context, data *studentModel.Student) error {
-	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, "student")
+	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, studentModel.StudentCollection)
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
@@ -52,7 +52,7 @@ func (biz *addStudentBiz) AddStudent(ctx context.Context, data *studentModel.Stu
 }
 
 func (biz *addStudentBiz) AddStudentToCourse(ctx context.Context, data *studentModel.Student) error {
-	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id}, "student")
+	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id}, studentModel.StudentCollection)
 	returningAddition := ""
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
@@ -63,7 +63,7 @@ func (biz *addStudentBiz) AddStudentToCourse(ctx context.Context, data *studentM
 
 	if student == nil {
 		location := "Course"
-		notify := notifyModel.Notification{
+		notify := notificationModel.Notification{
 			Content:  fmt.Sprint(" yeu cau them hoc sinh co ma so sinh vien ", data.Id, "vao khoa hoc"),
 			Passive:  data.Id,
 			Seen:     false,
@@ -79,7 +79,7 @@ func (biz *addStudentBiz) AddStudentToCourse(ctx context.Context, data *studentM
 
 	}
 
-	student, err = biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, "student_course")
+	student, err = biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, studentModel.Student_Course_Collection)
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
@@ -93,7 +93,7 @@ func (biz *addStudentBiz) AddStudentToCourse(ctx context.Context, data *studentM
 	}
 
 	managerLog.InfoLogger.Println("Check student ok, can create currently user")
-	if err := biz.store.CreateNewStudent(ctx, data, "student_course"); err != nil {
+	if err := biz.store.CreateNewStudent(ctx, data, studentModel.Student_Course_Collection); err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return solveError.ErrDB(err)
 	}
@@ -106,7 +106,7 @@ func (biz *addStudentBiz) AddStudentToCourse(ctx context.Context, data *studentM
 }
 
 func (biz *addStudentBiz) AddStudentToClass(ctx context.Context, data *studentModel.Student) error {
-	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id}, "student")
+	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id}, studentModel.StudentCollection)
 	returningAddition := ""
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
@@ -119,7 +119,7 @@ func (biz *addStudentBiz) AddStudentToClass(ctx context.Context, data *studentMo
 	if student == nil {
 		location := "Class"
 
-		notify := notifyModel.Notification{
+		notify := notificationModel.Notification{
 			Content:  fmt.Sprint(" yeu cau them hoc sinh co ma so sinh vien ", data.Id, "vao lop"),
 			Passive:  data.Id,
 			Seen:     false,
@@ -134,7 +134,7 @@ func (biz *addStudentBiz) AddStudentToClass(ctx context.Context, data *studentMo
 		returningAddition = "Student is not exist in school, waiting admin acp"
 	}
 
-	student, err = biz.store.FindStudent(ctx, bson.M{"id": data.Id, "class_id": data.ClassId}, "student_class")
+	student, err = biz.store.FindStudent(ctx, bson.M{"id": data.Id, "class_id": data.ClassId}, studentModel.Student_Class_Collection)
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
@@ -148,7 +148,7 @@ func (biz *addStudentBiz) AddStudentToClass(ctx context.Context, data *studentMo
 	}
 
 	managerLog.InfoLogger.Println("Check student ok, can create currently user")
-	if err := biz.store.CreateNewStudent(ctx, data, "student_class"); err != nil {
+	if err := biz.store.CreateNewStudent(ctx, data, studentModel.Student_Class_Collection); err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return solveError.ErrDB(err)
 	}

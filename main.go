@@ -12,8 +12,8 @@ import (
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/class/classTransport"
 	"managerstudent/modules/course/courseTransport"
-	"managerstudent/modules/mark/markTransport"
-	"managerstudent/modules/notifedProvider/notifyTransport"
+	"managerstudent/modules/notifedProvider/notificationTransport"
+	"managerstudent/modules/result/resultTransport"
 	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/subcriber"
 	"managerstudent/modules/user/userTransport"
@@ -52,11 +52,11 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	}
 	result := r.Group("/result")
 	{
-		result.POST("/new", markTransport.AddResult(appCtx))
-		result.PATCH("/update", markTransport.UpdateResult(appCtx))
-		result.GET("/list/student", markTransport.ListResultByIdStudent(appCtx))
-		result.GET("/list/class", markTransport.ListResultByIdClass(appCtx))
-		result.GET("/list/course", markTransport.ListResultByIdCourse(appCtx))
+		result.POST("/new", resultTransport.AddResult(appCtx))
+		result.PATCH("/update", resultTransport.UpdateResult(appCtx))
+		result.GET("/list/student", resultTransport.ListResultByIdStudent(appCtx))
+		result.GET("/list/class", resultTransport.ListResultByIdClass(appCtx))
+		result.GET("/list/course", resultTransport.ListResultByIdCourse(appCtx))
 	}
 
 	class := r.Group("/class")
@@ -73,12 +73,12 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		course.GET("/list", courseTransport.ListCourses(appCtx))
 	}
 
-	notify := r.Group("/notify")
+	notify := r.Group("/notification")
 	{
-		notify.GET("/get", notifyTransport.GetNotification(appCtx))
-		notify.GET("/list", notifyTransport.ListNotifications(appCtx))
-		notify.POST("/acp/user", notifyTransport.AdminAcpNotifyUserRegister(appCtx))
-		notify.POST("/acp/student", notifyTransport.AdminAcpNotifyRequestAddStudent(appCtx))
+		notify.GET("/get", notificationTransport.GetNotification(appCtx))
+		notify.GET("/list", notificationTransport.ListNotifications(appCtx))
+		notify.POST("/acp/user", notificationTransport.AdminAcpNotifyUserRegister(appCtx))
+		notify.POST("/acp/student", notificationTransport.AdminAcpNotifyRequestAddStudent(appCtx))
 	}
 
 	return r.Run(":8080")

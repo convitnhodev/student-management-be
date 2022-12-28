@@ -4,13 +4,14 @@ import (
 	"context"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"managerstudent/common/paging"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/user/userModel"
 )
 
 func (db *mongoStore) ListUsersByConditions(ctx context.Context, conditions interface{}, page *paging.Paging) ([]userModel.User, error) {
-	collection := db.db.Database("ManagerStudent").Collection("User")
+	collection := db.db.Database(setupDatabase.NameDB).Collection(userModel.NameCollection)
 
 	opstions := new(options.FindOptions)
 	opstions.SetLimit(page.Limit)

@@ -492,3 +492,76 @@ ERROR: 2022/12/28 13:46:47 listNotify.go:21: Can't find record into DB, somethin
 INFO: 2022/12/28 13:49:01 listNotify.go:31: Find record success, storage return record and nil error
 INFO: 2022/12/28 13:49:16 listNotify.go:31: Find record success, storage return record and nil error
 INFO: 2022/12/28 13:49:33 listNotify.go:31: Find record success, storage return record and nil error
+ERROR: 2022/12/28 14:53:25 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:53:37 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:53:38 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:53:44 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:53:55 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:53:56 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:58:48 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:58:48 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:58:54 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:58:55 getNotification.go:18: Can't find notification from DB, something DB is error
+ERROR: 2022/12/28 14:59:41 getNotification.go:18: Can't find notification from DB, something DB is error
+INFO: 2022/12/28 15:01:37 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/28 15:01:37 createNewUser.go:41: User's not new
+INFO: 2022/12/28 15:01:43 findUser.go:18: Cant find record from database
+INFO: 2022/12/28 15:01:43 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 15:01:43 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/28 15:01:43 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 15:01:43 createNewNotification.go:17: Insert Notification to DB success
+INFO: 2022/12/28 15:01:44 findUser.go:28: Find record success, storage return record and nil error
+WARNING2022/12/28 15:01:44 createNewUser.go:41: User's not new
+INFO: 2022/12/28 15:01:47 findUser.go:18: Cant find record from database
+INFO: 2022/12/28 15:01:47 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 15:01:47 createUser.go:17: Create record success, return nil error
+INFO: 2022/12/28 15:01:47 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 15:01:47 createNewNotification.go:17: Insert Notification to DB success
+INFO: 2022/12/28 15:02:04 getNotification.go:21: get info from DB success
+INFO: 2022/12/28 15:02:04 getNotification.go:25: Find record success, storage return record and nil error
+INFO: 2022/12/28 15:30:58 findUser.go:19: Cant find record from database
+INFO: 2022/12/28 15:30:58 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 15:30:58 createUser.go:18: Create record success, return nil error
+INFO: 2022/12/28 15:30:58 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 15:30:58 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2022/12/28 15:31:40 findUser.go:29: Find record success, storage return record and nil error
+WARNING2022/12/28 15:31:40 createNewUser.go:41: User's not new
+INFO: 2022/12/28 15:31:42 findUser.go:19: Cant find record from database
+INFO: 2022/12/28 15:31:42 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 15:31:42 createUser.go:18: Create record success, return nil error
+INFO: 2022/12/28 15:31:42 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 15:31:42 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2022/12/28 15:32:07 findUser.go:29: Find record success, storage return record and nil error
+WARNING2022/12/28 15:32:07 createNewUser.go:41: User's not new
+INFO: 2022/12/28 15:32:09 findUser.go:19: Cant find record from database
+INFO: 2022/12/28 15:32:09 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 15:32:09 createUser.go:18: Create record success, return nil error
+INFO: 2022/12/28 15:32:09 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 15:32:09 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2022/12/28 15:32:27 findUser.go:29: Find record success, storage return record and nil error
+WARNING2022/12/28 15:32:27 createNewUser.go:41: User's not new
+INFO: 2022/12/28 15:32:33 findUser.go:19: Cant find record from database
+INFO: 2022/12/28 15:32:33 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 15:32:33 createUser.go:18: Create record success, return nil error
+INFO: 2022/12/28 15:32:33 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 15:32:33 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2022/12/28 15:32:38 findUser.go:19: Cant find record from database
+INFO: 2022/12/28 15:32:38 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 15:32:38 createUser.go:18: Create record success, return nil error
+INFO: 2022/12/28 15:32:38 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 15:32:38 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2022/12/28 15:32:40 findUser.go:29: Find record success, storage return record and nil error
+WARNING2022/12/28 15:32:40 createNewUser.go:41: User's not new
+INFO: 2022/12/28 15:36:13 SolveNotification.go:20: update result success, storage return record and nil error
+INFO: 2022/12/28 15:38:47 SolveNotification.go:20: update result success, storage return record and nil error
+INFO: 2022/12/28 15:39:25 SolveNotification.go:20: update result success, storage return record and nil error
+INFO: 2022/12/28 15:41:21 SolveNotification.go:20: update result success, storage return record and nil error
+INFO: 2022/12/28 15:46:09 SolveNotification.go:20: update result success, storage return record and nil error
+ERROR: 2022/12/28 16:01:44 SolveNotification.go:17: Can't update to DB, something DB is error
+INFO: 2022/12/28 16:11:50 findUser.go:19: Cant find record from database
+INFO: 2022/12/28 16:11:50 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/28 16:11:50 createUser.go:18: Create record success, return nil error
+INFO: 2022/12/28 16:11:50 createNewUser.go:63: Create user ok
+INFO: 2022/12/28 16:11:50 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2022/12/28 16:12:42 SolveNotification.go:21: update result success, storage return record and nil error
+INFO: 2022/12/28 16:15:00 SolveNotification.go:21: update result success, storage return record and nil error

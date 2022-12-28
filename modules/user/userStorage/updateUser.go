@@ -2,12 +2,14 @@ package userStorage
 
 import (
 	"context"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
+	"managerstudent/modules/user/userModel"
 )
 
 func (db *mongoStore) UpdateUser(ctx context.Context, conditions interface{}, value interface{}) error {
-	collection := db.db.Database("ManagerStudent").Collection("User")
+	collection := db.db.Database(setupDatabase.NameDB).Collection(userModel.NameCollection)
 
 	_, err := collection.UpdateOne(ctx, conditions, value)
 	if err != nil {

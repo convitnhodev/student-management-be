@@ -26,6 +26,6 @@ func (biz *deleteCourseBiz) DeleteCourse(ctx context.Context, filter interface{}
 		managerLog.ErrorLogger.Println("Some thing error in storage course, may be from database")
 		return solveError.ErrDB(err)
 	}
-	biz.pubsub.Publish(ctx, "deleteCourse", pubsub.NewMessage(filter))
+	biz.pubsub.Publish(ctx, "DeleteCourse", pubsub.NewMessage(filter))
 	return nil
 }

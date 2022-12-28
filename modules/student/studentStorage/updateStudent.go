@@ -2,12 +2,13 @@ package studentStorage
 
 import (
 	"context"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 )
 
 func (db *mongoStore) UpdateStudent(ctx context.Context, conditions interface{}, value interface{}, location string) error {
-	collection := db.db.Database("ManagerStudent").Collection(location)
+	collection := db.db.Database(setupDatabase.NameDB).Collection(location)
 
 	_, err := collection.UpdateOne(ctx, conditions, value)
 	if err != nil {

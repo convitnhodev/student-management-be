@@ -1,5 +1,7 @@
 package classModel
 
+const NameCollection = "Classes"
+
 type Class struct {
 	Id              string `json:"class_id" bson:"class_id"`
 	Grade           int    `json:"grade" bson:"grade"`

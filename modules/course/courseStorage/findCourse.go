@@ -3,13 +3,14 @@ package courseStorage
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/course/courseModel"
 )
 
 func (db *mongoStore) FindCourse(ctx context.Context, conditions interface{}) (*courseModel.Course, error) {
-	collection := db.db.Database("ManagerStudent").Collection("Course")
+	collection := db.db.Database(setupDatabase.NameDB).Collection(courseModel.NameCollection)
 
 	var data bson.M
 

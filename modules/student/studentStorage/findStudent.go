@@ -3,13 +3,14 @@ package studentStorage
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/student/studentModel"
 )
 
 func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}, location string) (*studentModel.Student, error) {
-	collection := db.db.Database("ManagerStudent").Collection(location)
+	collection := db.db.Database(setupDatabase.NameDB).Collection(location)
 
 	var data bson.M
 

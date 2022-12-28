@@ -30,3 +30,5 @@ func InitMongoDB() *mongo.Client {
 	fmt.Println(databases)
 	return client
 }
+
+const NameDB = "ManageStudent"

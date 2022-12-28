@@ -9,7 +9,7 @@ import (
 	"managerstudent/common/solveError"
 	"managerstudent/component/hasher"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/notifedProvider/notifyModel"
+	"managerstudent/modules/notifedProvider/notificationModel"
 	"managerstudent/modules/user/userModel"
 	"time"
 )
@@ -52,13 +52,13 @@ func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.Use
 		return solveError.ErrDB(err)
 	}
 
-	notify := notifyModel.Notification{
+	notify := notificationModel.Notification{
 		Content: fmt.Sprint(data.UserName, " yeu cau dang ki tai khoan"),
 		Agent:   data.UserName,
 		Seen:    false,
 		Time:    time.Now(),
 	}
-	biz.pubsub.Publish(ctx, "registerNotify", pubsub.NewMessage(notify))
+	biz.pubsub.Publish(ctx, "RegisterNotify", pubsub.NewMessage(notify))
 
 	managerLog.InfoLogger.Println("Create user ok")
 	return nil

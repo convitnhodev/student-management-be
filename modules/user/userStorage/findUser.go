@@ -3,13 +3,14 @@ package userStorage
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/user/userModel"
 )
 
 func (db *mongoStore) FindUser(ctx context.Context, conditions interface{}) (*userModel.User, error) {
-	collection := db.db.Database("ManagerStudent").Collection("User")
+	collection := db.db.Database(setupDatabase.NameDB).Collection(userModel.NameCollection)
 
 	var data bson.M
 

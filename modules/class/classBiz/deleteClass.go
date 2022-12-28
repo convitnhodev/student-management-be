@@ -27,6 +27,6 @@ func (biz *deleteClassBiz) DeleteClass(ctx context.Context, filter interface{}) 
 		return solveError.ErrDB(err)
 	}
 
-	biz.pubsub.Publish(ctx, "deleteClass", pubsub.NewMessage(filter))
+	biz.pubsub.Publish(ctx, "DeleteClass", pubsub.NewMessage(filter))
 	return nil
 }
