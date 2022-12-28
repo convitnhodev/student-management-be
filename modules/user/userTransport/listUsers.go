@@ -19,7 +19,7 @@ func ListUsers(app component.AppContext) gin.HandlerFunc {
 		}
 
 		var filter userModel.Filter
-		if err := c.BindJSON(&filter); err != nil {
+		if err := c.ShouldBindHeader(&filter); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 

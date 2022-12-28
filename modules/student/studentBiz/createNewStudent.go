@@ -27,7 +27,7 @@ func NewAddStudentBiz(store AddStudentStore, pubsub pubsub.Pubsub) *addStudentBi
 }
 
 func (biz *addStudentBiz) AddStudent(ctx context.Context, data *studentModel.Student) error {
-	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id, "course_id": data.CourseId}, studentModel.StudentCollection)
+	student, err := biz.store.FindStudent(ctx, bson.M{"id": data.Id}, studentModel.StudentCollection)
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
@@ -42,7 +42,7 @@ func (biz *addStudentBiz) AddStudent(ctx context.Context, data *studentModel.Stu
 
 	managerLog.InfoLogger.Println("Check student ok, can create currently user")
 	data.Acp = true
-	if err := biz.store.CreateNewStudent(ctx, data, "student"); err != nil {
+	if err := biz.store.CreateNewStudent(ctx, data, studentModel.StudentCollection); err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return solveError.ErrDB(err)
 	}

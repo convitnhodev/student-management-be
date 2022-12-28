@@ -21,7 +21,7 @@ func NewGetStudent(store GetStudentStore) *getStudentBiz {
 }
 
 func (biz *getStudentBiz) GetStudent(ctx context.Context, filter interface{}) (*studentModel.Student, error) {
-	data, err := biz.store.FindStudent(ctx, bson.M{"id": filter}, "student");
+	data, err := biz.store.FindStudent(ctx, bson.M{"id": filter}, studentModel.StudentCollection)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return nil, solveError.ErrDB(err)
@@ -30,5 +30,3 @@ func (biz *getStudentBiz) GetStudent(ctx context.Context, filter interface{}) (*
 	managerLog.InfoLogger.Println("Get student ok")
 	return data, nil
 }
-
-

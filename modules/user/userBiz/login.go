@@ -42,12 +42,8 @@ func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) 
 		return nil, solveError.ErrEntityNotExisted("User", nil)
 	}
 
-	if user.Role != data.Role {
-		return nil, solveError.ErrInvalidLogin(errors.New("Role is not match"))
-	}
-
 	if user.Password != biz.hasher.HashMd5(user.Salt+data.Password+user.Salt) {
-		return nil, solveError.ErrInvalidLogin(err)
+		return nil, solveError.ErrInvalidLogin(errors.New("info is invalid"))
 	}
 
 	payload := tokenProvider.TokenPayload{

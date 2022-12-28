@@ -80,6 +80,5 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		notify.POST("/acp/user", notificationTransport.AdminAcpNotifyUserRegister(appCtx))
 		notify.POST("/acp/student", notificationTransport.AdminAcpNotifyRequestAddStudent(appCtx))
 	}
-
 	return r.Run(":8080")
 }
