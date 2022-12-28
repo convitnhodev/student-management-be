@@ -24,7 +24,7 @@ func (biz *acpNotifyRequestAddStudentBiz) AcpNotifyRequestAddStudent(ctx context
 	data.Status = status
 
 	filter := bson.D{{"id", data.Id}}
-	update := bson.D{{"$set", bson.D{{"status", status}}}}
+	update := bson.D{{"$set", bson.D{{"status", status}, {"seen", true}}}}
 	err := biz.store.SolveNotify(ctx, filter, update)
 	if err != nil {
 		return err

@@ -455,3 +455,5 @@ INFO: 2022/12/28 03:29:54 addStudent.go:18: Insert to DB success
 INFO: 2022/12/28 03:29:54 createNewStudent.go:156: Create student ok
 INFO: 2022/12/28 03:30:16 SolveNotify.go:19: update result success, storage return record and nil error
 INFO: 2022/12/28 03:30:16 updateStudent.go:17: update result success, storage return record and nil error
+INFO: 2022/12/28 03:45:03 listUserByConditions.go:31: Find record success, storage return record and nil error
+INFO: 2022/12/28 03:45:38 listUserByConditions.go:31: Find record success, storage return record and nil error
