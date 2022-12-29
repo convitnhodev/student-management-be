@@ -22,7 +22,7 @@ func NewCreateCourseBiz(store CreateCourseStore) *createCourseBiz {
 }
 
 func (biz *createCourseBiz) CreateNewCourse(ctx context.Context, data *courseModel.Course) error {
-	class, err := biz.store.FindCourse(ctx, bson.M{"course_id": data.Id})
+	course, err := biz.store.FindCourse(ctx, bson.M{"course_id": data.Id})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage student, may be from database")
@@ -30,9 +30,13 @@ func (biz *createCourseBiz) CreateNewCourse(ctx context.Context, data *courseMod
 		}
 	}
 
-	if class != nil {
-		managerLog.WarningLogger.Println("Class exist")
-		return solveError.ErrEntityExisted("Class", nil)
+	if course != nil {
+		managerLog.WarningLogger.Println("Course exist")
+		return solveError.ErrEntityExisted("Course", nil)
+	}
+
+	if len(data.ListStudentId) < 1 {
+		data.ListStudentId = make([]string, 0)
 	}
 
 	managerLog.InfoLogger.Println("Check student ok, can create currently class")
@@ -41,7 +45,7 @@ func (biz *createCourseBiz) CreateNewCourse(ctx context.Context, data *courseMod
 		return solveError.ErrDB(err)
 	}
 
-	managerLog.InfoLogger.Println("Create class ok")
+	managerLog.InfoLogger.Println("Create course ok")
 	return nil
 
 }
