@@ -42,6 +42,10 @@ func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) 
 		return nil, solveError.ErrEntityNotExisted("User", nil)
 	}
 
+	if user.Acp == false {
+		return nil, solveError.ErrEntityNotExisted("User", errors.New("User is not acp"))
+	}
+
 	if user.Password != biz.hasher.HashMd5(user.Salt+data.Password+user.Salt) {
 		return nil, solveError.ErrInvalidLogin(errors.New("info is invalid"))
 	}
