@@ -12,48 +12,49 @@ import (
 
 func AddStudent(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var student studentModel.Student
+		var student studentModel.FullInfoStudent
 		if err := c.ShouldBind(&student); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
-		if err := biz.AddStudent(c.Request.Context(), &student); err != nil {
+		biz := studentBiz.NewAdminCreateStudentBiz(store, app.GetPubsub())
+		datareturn, err := biz.CreateNewStudent(c.Request.Context(), &student)
+		if err != nil {
 			c.JSON(400, err)
 			return
 		}
-		c.JSON(200, customResponse.SimpleSuccessReponse("success"))
+		c.JSON(200, customResponse.SimpleSuccessReponse(datareturn.Id))
 	}
 }
 
-func AddStudentToClass(app component.AppContext) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		var student studentModel.Student
-		if err := c.ShouldBind(&student); err != nil {
-			panic(solveError.ErrInvalidRequest(err))
-		}
-		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
-		if err := biz.AddStudentToClass(c.Request.Context(), &student); err != nil {
-			c.JSON(400, err)
-			return
-		}
-		c.JSON(200, "ok")
-	}
-}
-
-func AddStudentToCourse(app component.AppContext) gin.HandlerFunc {
-	return func(c *gin.Context) {
-		var student studentModel.Student
-		if err := c.ShouldBind(&student); err != nil {
-			panic(solveError.ErrInvalidRequest(err))
-		}
-		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
-		if err := biz.AddStudentToCourse(c.Request.Context(), &student); err != nil {
-			c.JSON(400, err)
-			return
-		}
-		c.JSON(200, "ok")
-	}
-}
+//func AddStudentToClass(app component.AppContext) gin.HandlerFunc {
+//	return func(c *gin.Context) {
+//		var student studentModel.Student
+//		if err := c.ShouldBind(&student); err != nil {
+//			panic(solveError.ErrInvalidRequest(err))
+//		}
+//		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
+//		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
+//		if err := biz.AddStudentToClass(c.Request.Context(), &student); err != nil {
+//			c.JSON(400, err)
+//			return
+//		}
+//		c.JSON(200, "ok")
+//	}
+//}
+//
+//func AddStudentToCourse(app component.AppContext) gin.HandlerFunc {
+//	return func(c *gin.Context) {
+//		var student studentModel.Student
+//		if err := c.ShouldBind(&student); err != nil {
+//			panic(solveError.ErrInvalidRequest(err))
+//		}
+//		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
+//		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
+//		if err := biz.AddStudentToCourse(c.Request.Context(), &student); err != nil {
+//			c.JSON(400, err)
+//			return
+//		}
+//		c.JSON(200, "ok")
+//	}
+//}

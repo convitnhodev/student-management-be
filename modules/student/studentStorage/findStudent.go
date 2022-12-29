@@ -6,10 +6,9 @@ import (
 	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/student/studentModel"
 )
 
-func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}, location string) (*studentModel.Student, error) {
+func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}, location string) (interface{}, error) {
 	collection := db.db.Database(setupDatabase.NameDB).Collection(location)
 
 	var data bson.M
@@ -23,7 +22,7 @@ func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}, l
 		return nil, solveError.ErrDB(err)
 	}
 
-	var result studentModel.Student
+	var result interface{}
 	bsonBytes, _ := bson.Marshal(data)
 	bson.Unmarshal(bsonBytes, &result)
 	managerLog.InfoLogger.Println("Find record success, storage return record and nil error")

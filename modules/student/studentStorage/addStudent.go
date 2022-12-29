@@ -5,10 +5,9 @@ import (
 	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/student/studentModel"
 )
 
-func (db *mongoStore) CreateNewStudent(ctx context.Context, data *studentModel.Student, location string) error {
+func (db *mongoStore) CreateNewStudent(ctx context.Context, data interface{}, location string) error {
 	collection := db.db.Database(setupDatabase.NameDB).Collection(location)
 	_, err := collection.InsertOne(ctx, data)
 	if err != nil {

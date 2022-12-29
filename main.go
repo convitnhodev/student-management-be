@@ -34,6 +34,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
 	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
 	subcriber.Setup(appCtx)
+	r.POST("test", studentTransport.PostAgentLogFile(appCtx))
 	user := r.Group("/user")
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))
@@ -43,12 +44,14 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	student := r.Group("/student")
 	{
 		student.POST("/new", studentTransport.AddStudent(appCtx))
-		student.GET("/get", studentTransport.GetStudent(appCtx))
-		student.POST("/class", studentTransport.AddStudentToClass(appCtx))
-		student.POST("/course", studentTransport.AddStudentToCourse(appCtx))
-		student.DELETE("/delete", studentTransport.DeleteStudent(appCtx))
-		student.DELETE("/delete/class", studentTransport.DeleteStudentFromClass(appCtx))
-		student.DELETE("/delete/course", studentTransport.DeleteStudentFromCourse(appCtx))
+		student.POST("/add/class", studentTransport.UserAddStudentToClass(appCtx))
+		student.POST("/add/course", studentTransport.UserAddStudentToCourse(appCtx))
+		//student.GET("/get", studentTransport.GetStudent(appCtx))
+		//student.POST("/class", studentTransport.AddStudentToClass(appCtx))
+		//student.POST("/course", studentTransport.AddStudentToCourse(appCtx))
+		//student.DELETE("/delete", studentTransport.DeleteStudent(appCtx))
+		//student.DELETE("/delete/class", studentTransport.DeleteStudentFromClass(appCtx))
+		//student.DELETE("/delete/course", studentTransport.DeleteStudentFromCourse(appCtx))
 	}
 	result := r.Group("/result")
 	{

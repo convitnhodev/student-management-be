@@ -2,6 +2,7 @@ package classTransport
 
 import (
 	"github.com/gin-gonic/gin"
+	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
 	"managerstudent/modules/class/classBiz"
@@ -13,7 +14,7 @@ func DeleteClass(app component.AppContext) gin.HandlerFunc {
 		var id string
 		var ok bool
 
-		id, ok = c.GetQuery("id")
+		id, ok = c.GetQuery("class_id")
 		if !ok {
 			panic(solveError.ErrInvalidRequest(nil))
 		}
@@ -24,6 +25,6 @@ func DeleteClass(app component.AppContext) gin.HandlerFunc {
 			c.JSON(400, err)
 			return
 		}
-		c.JSON(200, "success")
+		c.JSON(200, customResponse.SimpleSuccessReponse("success"))
 	}
 }
