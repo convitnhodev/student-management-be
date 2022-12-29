@@ -3,15 +3,14 @@ package _const
 type Role int
 
 const (
-	Student Role = iota
-	Teacher
-	Headmaster
+	Teacher Role = iota
+	Manager
 )
 
 const CurrentUser = "User"
 
 func (r Role) String() string {
-	return []string{"Student", "Teacher", "AssistantPrincipal", "Headmaster"}[r]
+	return []string{"Teacher", "Manager"}[r]
 }
 
 type Requester interface {

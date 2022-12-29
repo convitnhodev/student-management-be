@@ -35,7 +35,7 @@ func NewLoginBusiness(storeUser LoginStorage, tokenProvider tokenProvider.Provid
 func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) (*tokenProvider.Token, error) {
 	user, err := biz.storeUser.FindUser(ctx, bson.M{"user_name": data.UserName})
 	if err != nil {
-		return nil, err
+		return nil, solveError.ErrEntityNotExisted("User", nil)
 	}
 
 	if user == nil {

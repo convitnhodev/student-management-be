@@ -967,3 +967,40 @@ INFO: 2022/12/29 12:16:01 findStudent.go:28: Find record success, storage return
 INFO: 2022/12/29 12:16:01 updateStudent.go:18: update result success, storage return record and nil error
 INFO: 2022/12/29 12:16:01 updateClass.go:19: update result success, storage return record and nil error
 INFO: 2022/12/29 12:16:01 updateClass.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:06 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/29 12:17:06 updateStudent.go:18: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:06 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:06 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 updateStudent.go:18: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 updateStudent.go:18: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 12:17:12 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 16:34:34 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/29 16:34:34 updateStudent.go:18: update result success, storage return record and nil error
+INFO: 2022/12/29 16:34:34 updateClass.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 16:34:43 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/29 16:34:43 updateStudent.go:18: update result success, storage return record and nil error
+INFO: 2022/12/29 16:34:43 updateClass.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 16:34:49 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/29 16:34:49 updateStudent.go:18: update result success, storage return record and nil error
+INFO: 2022/12/29 16:34:49 updateClass.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 16:35:29 findStudent.go:28: Find record success, storage return record and nil error
+INFO: 2022/12/29 16:35:29 updateStudent.go:18: update result success, storage return record and nil error
+INFO: 2022/12/29 16:35:29 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 16:35:29 updateCourse.go:19: update result success, storage return record and nil error
+INFO: 2022/12/29 17:06:31 findUser.go:19: Cant find record from database
+INFO: 2022/12/29 17:06:31 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2022/12/29 17:06:31 createUser.go:18: Create record success, return nil error
+INFO: 2022/12/29 17:06:31 createNewUser.go:63: Create user ok
+INFO: 2022/12/29 17:06:31 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2022/12/29 17:13:39 findUser.go:19: Cant find record from database
+INFO: 2022/12/29 17:14:07 findUser.go:19: Cant find record from database
+INFO: 2022/12/29 17:14:08 findUser.go:19: Cant find record from database
+INFO: 2022/12/29 17:15:09 findUser.go:19: Cant find record from database
+INFO: 2022/12/29 17:15:41 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2022/12/29 17:16:22 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2022/12/29 17:16:25 findUser.go:19: Cant find record from database
