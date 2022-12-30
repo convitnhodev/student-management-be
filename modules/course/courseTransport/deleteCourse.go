@@ -13,7 +13,7 @@ func DeleteCourse(app component.AppContext) gin.HandlerFunc {
 		var id string
 		var ok bool
 
-		id, ok = c.GetQuery("id")
+		id, ok = c.GetQuery("course_id")
 		if !ok {
 			panic(solveError.ErrInvalidRequest(nil))
 		}
