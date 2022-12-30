@@ -40,13 +40,13 @@ func (biz *userCreateStudentToCourseBiz) UserCreateNewStudentToCourse(ctx contex
 		return solveError.ErrEntityNotExisted("Student", nil)
 	}
 
-	results := make([]studentModel.Result, 0)
+	list_courses := make([]string, 0)
 	for _, value := range data.Courses {
-		results = append(results, studentModel.Result{CourseId: value, QuickExam: make([]float64, 0), Exam15: make([]float64, 0), Exam45: make([]float64, 0)})
+		list_courses = append(list_courses, value)
 	}
 
 	filter := bson.D{{"id", data.StudentId}}
-	update := bson.M{"$push": bson.M{"results": bson.M{"$each": results}}}
+	update := bson.M{"$push": bson.M{"list_course_id": bson.M{"$each": list_courses}}}
 	if err := biz.store.UpdateStudent(ctx, filter, update, studentModel.StudentCollection); err != nil {
 		return err
 

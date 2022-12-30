@@ -46,6 +46,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		student.POST("/new", studentTransport.AddStudent(appCtx))
 		student.POST("/add/class", studentTransport.UserAddStudentToClass(appCtx))
 		student.POST("/add/course", studentTransport.UserAddStudentToCourse(appCtx))
+		student.PATCH("/update/result", studentTransport.UserUpdateResult(appCtx))
 		//student.GET("/get", studentTransport.GetStudent(appCtx))
 		//student.POST("/class", studentTransport.AddStudentToClass(appCtx))
 		//student.POST("/course", studentTransport.AddStudentToCourse(appCtx))

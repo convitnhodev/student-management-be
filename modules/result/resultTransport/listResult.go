@@ -14,7 +14,7 @@ func ListResultByIdStudent(app component.AppContext) gin.HandlerFunc {
 		var filter resultModel.Filter
 		var ok bool
 
-		filter.IdStudent, ok = c.GetQuery("id_student")
+		filter.IdStudent, ok = c.GetQuery("student_id")
 		if !ok {
 			panic(solveError.ErrInvalidRequest(nil))
 		}

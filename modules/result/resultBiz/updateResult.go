@@ -21,7 +21,7 @@ func NewUpdateResultBiz(store UpdateResultStore) *updateResultBiz {
 }
 
 func (biz *updateResultBiz) UpdateResult(ctx context.Context, data resultModel.Result) error {
-	err := biz.store.UpdateResult(ctx, bson.M{"id_student": data.IdStudent}, data)
+	err := biz.store.UpdateResult(ctx, bson.M{"student_id": data.StudentId}, data)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return solveError.ErrDB(err)

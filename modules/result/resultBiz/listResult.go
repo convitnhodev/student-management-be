@@ -33,7 +33,7 @@ func (biz *listResultBiz) ListResultByIdStudent(ctx context.Context, conditions 
 }
 
 func (biz *listResultBiz) ListResultByIdClass(ctx context.Context, conditions interface{}) ([]studentModel.Result, error) {
-	result, err := biz.store.ListResultByConditions(ctx, bson.M{"id_class": conditions})
+	result, err := biz.store.ListResultByConditions(ctx, bson.M{"class_id": conditions})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage mark, may be from database")
@@ -45,7 +45,7 @@ func (biz *listResultBiz) ListResultByIdClass(ctx context.Context, conditions in
 }
 
 func (biz *listResultBiz) ListResultByIdCourse(ctx context.Context, conditions interface{}) ([]studentModel.Result, error) {
-	result, err := biz.store.ListResultByConditions(ctx, bson.M{"id_course": conditions})
+	result, err := biz.store.ListResultByConditions(ctx, bson.M{"course_id": conditions})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage mark, may be from database")

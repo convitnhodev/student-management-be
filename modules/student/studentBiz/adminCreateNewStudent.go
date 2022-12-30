@@ -44,8 +44,8 @@ func (biz *adminCreateStudentBiz) CreateNewStudent(ctx context.Context, data *st
 	}
 
 	addingData := studentModel.Student{
-		Id:      data.Id,
-		Results: make([]studentModel.Result, 0),
+		Id:           data.Id,
+		ListCourseId: make([]string, 0),
 	}
 	if err := biz.store.CreateNewStudent(ctx, addingData, studentModel.StudentCollection); err != nil {
 		return nil, err

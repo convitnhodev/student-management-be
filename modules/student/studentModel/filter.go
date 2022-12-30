@@ -7,5 +7,5 @@ type StudentAndClass struct {
 
 type StudentAndCourse struct {
 	StudentId string   `json:"student_id" bson:"student_id"`
-	Courses   []string `json:"courses" bson:"courses"`
+	Courses   []string `json:"list_course_id" bson:"list_course_id"`
 }
