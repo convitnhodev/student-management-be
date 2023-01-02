@@ -1064,3 +1064,13 @@ INFO: 2022/12/30 00:12:59 updateCourse.go:19: update result success, storage ret
 INFO: 2022/12/31 00:06:30 findStudent.go:28: Find record success, storage return record and nil error
 WARNING2022/12/31 00:06:30 adminCreateNewStudent.go:38: Student exist
 INFO: 2022/12/31 00:23:03 deleteStudent.go:29: delete to DB success
+INFO: 2022/12/31 11:13:32 findClass.go:19: Cant find record from database
+INFO: 2022/12/31 11:13:32 createClass.go:19: Insert New Class to DB success
+INFO: 2022/12/31 11:13:32 createNewClass.go:45: Create class ok
+INFO: 2023/01/02 07:32:35 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 07:36:22 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 07:36:39 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 07:37:26 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 07:40:17 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 07:45:10 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 07:45:50 createResult.go:20: Insert to DB success

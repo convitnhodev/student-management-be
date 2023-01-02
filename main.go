@@ -40,6 +40,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		user.POST("/register", userTransport.UserRegister(appCtx))
 		user.POST("/login", userTransport.Login(appCtx))
 		user.GET("list", userTransport.ListUsers(appCtx))
+
 	}
 	student := r.Group("/student")
 	{
@@ -57,7 +58,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	result := r.Group("/result")
 	{
 		//result.POST("/new", resultTransport.AddResult(appCtx))
-		result.PATCH("/update", resultTransport.UpdateResult(appCtx))
+		result.POST("/new", resultTransport.AddResult(appCtx))
 		result.GET("/list/student", resultTransport.ListResultByIdStudent(appCtx))
 		result.GET("/list/class", resultTransport.ListResultByIdClass(appCtx))
 		result.GET("/list/course", resultTransport.ListResultByIdCourse(appCtx))

@@ -18,8 +18,8 @@ func CreateNewCourse(app component.AppContext) gin.HandlerFunc {
 		}
 
 		store := courseStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := courseBiz.NewCreateCourseBiz(store)
-		if err := biz.CreateNewCourse(c.Request.Context(), &data); err != nil {
+		biz := courseBiz.NewUpdateCourseBiz(store)
+		if err := biz.UpdateCourse(c.Request.Context(), &data); err != nil {
 			c.JSON(400, err)
 			return
 		}

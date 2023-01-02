@@ -20,6 +20,10 @@ type User struct {
 	Phone    string      `json:"phone" bson:"phone"`
 	Gmail    string      `json:"gmail" bson:"gmail"`
 	Acp      bool        `json:"acp" bson:"acp"`
+	// dob
+	// sex
+	// address
+
 }
 
 func (user *User) Validate() error {

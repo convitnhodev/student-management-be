@@ -8,15 +8,10 @@ import (
 	"managerstudent/modules/result/resultModel"
 )
 
-func (db *mongoStore) CreateListResult(ctx context.Context, data []resultModel.Result) error {
+func (db *mongoStore) CreateResult(ctx context.Context, data resultModel.Result) error {
 	collection := db.db.Database(setupDatabase.NameDB).Collection(resultModel.NameCollection)
 
-	result := make([]interface{}, 0)
-	for _, element := range data {
-		result = append(result, element)
-	}
-
-	_, err := collection.InsertMany(ctx, result)
+	_, err := collection.InsertOne(ctx, data)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Can't Insert to DB, something DB is error")
 		return solveError.ErrDB(err)
