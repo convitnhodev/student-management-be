@@ -66,6 +66,10 @@ func ErrInvalidLogin(err error) *AppError {
 	return NewFullErrorResponse(http.StatusBadRequest, err, "user or password invalid", err.Error(), "Internal_ERR")
 }
 
+func ErrInvalidCurrentPassword() *AppError {
+	return NewFullErrorResponse(http.StatusBadRequest, errors.New("invalid password"), "current password invalid", "", "Internal_ERR")
+}
+
 // 401, Unauthorrize
 func NewUnauthorized(root error, msg, key string) *AppError {
 	return &AppError{

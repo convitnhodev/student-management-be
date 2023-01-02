@@ -40,6 +40,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		user.POST("/login", userTransport.Login(appCtx))
 		user.GET("/list", userTransport.ListUsers(appCtx))
 		user.PATCH("/update", userTransport.UpdateUser(appCtx))
+		user.PATCH("/update/password", userTransport.UserUpdatePassword(appCtx))
 
 	}
 	student := r.Group("/student")

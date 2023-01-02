@@ -9,7 +9,7 @@ const NameCollection = "Users"
 
 type User struct {
 	UserName string      `json:"user_name,omitempty" bson:"user_name,omitempty"`
-	Password string      `json:"-,omitempty" bson:"password,omitempty"`
+	Password string      `json:"pass_word,omitempty" bson:"pass_word,omitempty"`
 	FullName string      `json:"full_name,omitempty" bson:"full_name,omitempty"`
 	Class    string      `json:"class,omitempty" bson:"class,omitempty"`
 	Role     _const.Role `json:"role,omitempty" bson:"role,omitempty"`
@@ -26,4 +26,10 @@ type User struct {
 
 func (user *User) GetUserName() string {
 	return user.UserName
+}
+
+type UpdatePassWord struct {
+	UserName    string `json:"user_name" bson:"user_name,omitempty"`
+	Password    string `json:"pass_word" bson:"pass_word,omitempty"`
+	NewPassword string `json:"new_pass_word"`
 }
