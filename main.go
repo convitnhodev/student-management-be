@@ -34,12 +34,12 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
 	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
 	subcriber.Setup(appCtx)
-	r.POST("test", studentTransport.PostAgentLogFile(appCtx))
 	user := r.Group("/user")
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))
 		user.POST("/login", userTransport.Login(appCtx))
-		user.GET("list", userTransport.ListUsers(appCtx))
+		user.GET("/list", userTransport.ListUsers(appCtx))
+		user.PATCH("/update", userTransport.UpdateUser(appCtx))
 
 	}
 	student := r.Group("/student")
@@ -59,9 +59,11 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	{
 		//result.POST("/new", resultTransport.AddResult(appCtx))
 		result.POST("/new", resultTransport.AddResult(appCtx))
-		result.GET("/list/student", resultTransport.ListResultByIdStudent(appCtx))
-		result.GET("/list/class", resultTransport.ListResultByIdClass(appCtx))
-		result.GET("/list/course", resultTransport.ListResultByIdCourse(appCtx))
+		result.DELETE("/delete", resultTransport.DeleteResults(appCtx))
+		result.PATCH("/update", resultTransport.UpdateResult(appCtx))
+		//result.GET("/list/student", resultTransport.ListResultByIdStudent(appCtx))
+		//result.GET("/list/class", resultTransport.ListResultByIdClass(appCtx))
+		//result.GET("/list/course", resultTransport.ListResultByIdCourse(appCtx))
 	}
 
 	class := r.Group("/class")

@@ -2,16 +2,19 @@ package userStorage
 
 import (
 	"context"
+	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/user/userModel"
 )
 
-func (db *mongoStore) UpdateUser(ctx context.Context, conditions interface{}, value interface{}) error {
+func (db *mongoStore) UpdateUser(ctx context.Context, conditions interface{}, data interface{}) error {
 	collection := db.db.Database(setupDatabase.NameDB).Collection(userModel.NameCollection)
-
-	_, err := collection.UpdateOne(ctx, conditions, value)
+	update := bson.M{
+		"$set": data,
+	}
+	_, err := collection.UpdateOne(ctx, conditions, update)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Can't update to DB, something DB is error")
 		return solveError.ErrDB(err)

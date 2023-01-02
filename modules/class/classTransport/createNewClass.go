@@ -12,11 +12,9 @@ import (
 func CreateNewClass(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var data classModel.Class
-
 		if err := c.ShouldBind(&data); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
-		
 		store := classStorage.NewMongoStore(app.GetNewDataMongoDB())
 		biz := classBiz.NewCreateClassBiz(store)
 		if err := biz.CreateNewClass(c.Request.Context(), &data); err != nil {
@@ -25,5 +23,4 @@ func CreateNewClass(app component.AppContext) gin.HandlerFunc {
 		}
 		c.JSON(200, data.Id)
 	}
-
 }

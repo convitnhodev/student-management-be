@@ -2,6 +2,7 @@ package userTransport
 
 import (
 	"github.com/gin-gonic/gin"
+	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
@@ -11,20 +12,25 @@ import (
 	"managerstudent/modules/user/userStorage"
 )
 
-func UserRegister(app component.AppContext) gin.HandlerFunc {
+func UpdateUser(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
+
 		var data userModel.User
+
 		if err := c.ShouldBind(&data); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
-		//
+
+		filter := bson.D{{"_id", data.Id}}
+
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
 		md5 := Hash_local.NewHashInfo()
-		biz := userBiz.NewCreateUserBiz(store, md5, app.GetPubsub())
-		if err := biz.CreateNewUser(c.Request.Context(), &data); err != nil {
+		biz := userBiz.NewUpdateBusiness(store, md5)
+		err := biz.UpdateUser(c.Request.Context(), filter, &data)
+		if err != nil {
 			c.JSON(400, err)
 			return
 		}
-		c.JSON(200, customResponse.SimpleSuccessReponse(data.UserName))
+		c.JSON(200, customResponse.SimpleSuccessReponse(data))
 	}
 }

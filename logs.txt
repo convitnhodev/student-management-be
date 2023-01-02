@@ -1074,3 +1074,23 @@ INFO: 2023/01/02 07:37:26 createResult.go:20: Insert to DB success
 INFO: 2023/01/02 07:40:17 createResult.go:20: Insert to DB success
 INFO: 2023/01/02 07:45:10 createResult.go:20: Insert to DB success
 INFO: 2023/01/02 07:45:50 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 09:26:26 deleteResult.go:20: Delete into DB success
+INFO: 2023/01/02 17:45:06 deleteResult.go:20: Delete into DB success
+INFO: 2023/01/02 17:46:17 createResult.go:20: Insert to DB success
+INFO: 2023/01/02 17:46:56 updateResult.go:25: Insert to DB success
+INFO: 2023/01/02 18:09:39 findUser.go:19: Cant find record from database
+INFO: 2023/01/02 18:09:39 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2023/01/02 18:09:39 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/02 18:09:39 createNewUser.go:63: Create user ok
+INFO: 2023/01/02 18:09:39 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/02 18:15:21 findUser.go:19: Cant find record from database
+INFO: 2023/01/02 18:15:21 updateUser.go:38: Check user ok, can create currently user
+INFO: 2023/01/02 18:15:21 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/02 18:15:47 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/02 18:15:47 updateUser.go:34: User's not new
+INFO: 2023/01/02 18:15:56 findUser.go:19: Cant find record from database
+INFO: 2023/01/02 18:15:56 updateUser.go:38: Check user ok, can create currently user
+INFO: 2023/01/02 18:15:56 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/02 18:18:08 findUser.go:19: Cant find record from database
+INFO: 2023/01/02 18:18:08 updateUser.go:41: Check user ok, can create currently user
+INFO: 2023/01/02 18:18:08 updateUser.go:22: update result success, storage return record and nil error

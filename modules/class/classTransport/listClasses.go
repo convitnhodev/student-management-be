@@ -2,6 +2,7 @@ package classTransport
 
 import (
 	"github.com/gin-gonic/gin"
+	"managerstudent/common/customResponse"
 	"managerstudent/common/paging"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
@@ -29,6 +30,6 @@ func ListClasses(app component.AppContext) gin.HandlerFunc {
 			c.JSON(400, err)
 			return
 		}
-		c.JSON(200, data)
+		c.JSON(200, customResponse.SimpleSuccessReponse(data))
 	}
 }
