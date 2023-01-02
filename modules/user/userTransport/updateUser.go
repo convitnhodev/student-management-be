@@ -21,7 +21,7 @@ func UpdateUser(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 
-		filter := bson.D{{"_id", data.Id}}
+		filter := bson.D{{"user_name", data.UserName}}
 
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
 		md5 := Hash_local.NewHashInfo()
