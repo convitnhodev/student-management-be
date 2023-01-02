@@ -26,7 +26,7 @@ func NewUpdateBusiness(store UpdateUserStore, hasher hasher.HasherInfo) *updateB
 
 func (biz *updateBusiness) UpdateUser(ctx context.Context, conditions interface{}, data *userModel.User) error {
 
-	user, err := biz.store.FindUser(ctx, bson.M{"user_name": data.UserName})
+	user, err := biz.store.FindUser(ctx, bson.M{"_id": data.Id})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
@@ -35,7 +35,7 @@ func (biz *updateBusiness) UpdateUser(ctx context.Context, conditions interface{
 	}
 	if user != nil {
 		managerLog.WarningLogger.Println("User's not new")
-		return solveError.ErrEntityExisted("User", nil)
+		return solveError.ErrEntityExisted("User is not exist", nil)
 	}
 
 	managerLog.InfoLogger.Println("Check user ok, can create currently user")
