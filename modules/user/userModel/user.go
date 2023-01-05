@@ -8,20 +8,19 @@ import (
 const NameCollection = "Users"
 
 type User struct {
-	UserName string      `json:"user_name,omitempty" bson:"user_name,omitempty"`
-	Password string      `json:"pass_word,omitempty" bson:"pass_word,omitempty"`
-	FullName string      `json:"full_name,omitempty" bson:"full_name,omitempty"`
+	UserName string      `json:"username,omitempty" bson:"username,omitempty"`
+	Password string      `json:"password,omitempty" bson:"password,omitempty"`
+	FullName string      `json:"fullname,omitempty" bson:"fullname,omitempty"`
 	Class    string      `json:"class,omitempty" bson:"class,omitempty"`
 	Role     _const.Role `json:"role,omitempty" bson:"role,omitempty"`
-	School   string      `json:"school,omitempty" bson:"school,omitempty"`
 	Salt     string      `json:"-" bson:"salt,omitempty"`
 	Token    string      `json:"-" bson:"token,omitempty"`
 	Phone    string      `json:"phone" bson:"phone,omitempty"`
 	Gmail    string      `json:"gmail" bson:"gmail,omitempty"`
 	Acp      bool        `json:"acp" bson:"acp,omitempty"`
-	sex      bool        `json:"sex" bson:"sex,omitempty""`
-	address  string      `json:"address" bson:"address,omitempty"`
-	dob      time.Time   `json:"dob" bson:"dob,omitempty"`
+	Sex      bool        `json:"sex" bson:"sex,omitempty"`
+	Address  string      `json:"address" bson:"address,omitempty"`
+	Dob      time.Time   `json:"dob" bson:"dob,omitempty"`
 }
 
 func (user *User) GetUserName() string {
@@ -29,7 +28,7 @@ func (user *User) GetUserName() string {
 }
 
 type UpdatePassWord struct {
-	UserName    string `json:"user_name" bson:"user_name,omitempty"`
-	Password    string `json:"pass_word" bson:"pass_word,omitempty"`
-	NewPassword string `json:"new_pass_word"`
+	UserName    string `json:"username" bson:"username,omitempty"`
+	Password    string `json:"password" bson:"password,omitempty"`
+	NewPassword string `json:"new_password"`
 }

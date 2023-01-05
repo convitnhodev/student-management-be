@@ -2,14 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/go-redis/redis"
-	"go.mongodb.org/mongo-driver/mongo"
 	"log"
 	"managerstudent/common/pubsub/localPubsub"
 	"managerstudent/common/setupDatabase"
 	"managerstudent/component"
 	"managerstudent/component/managerLog"
+	"managerstudent/middleware"
 	"managerstudent/modules/class/classTransport"
 	"managerstudent/modules/course/courseTransport"
 	"managerstudent/modules/notifedProvider/notificationTransport"
@@ -17,6 +15,10 @@ import (
 	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/subcriber"
 	"managerstudent/modules/user/userTransport"
+
+	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func main() {
@@ -34,6 +36,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
 	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
 	subcriber.Setup(appCtx)
+	r.Use(middleware.CORSMiddleware())
 	user := r.Group("/user")
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))

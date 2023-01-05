@@ -2,11 +2,12 @@ package subcriber
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
 	"managerstudent/modules/notifedProvider/notificationModel"
 	"managerstudent/modules/user/userStorage"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 func ChangeAcpUserAfterChangeNotify(appCtx component.AppContext, ctx context.Context) {
@@ -20,7 +21,7 @@ func ChangeAcpUserAfterChangeNotify(appCtx component.AppContext, ctx context.Con
 
 			msg := <-c
 			notify := msg.Data().(*notificationModel.Notification)
-			_ = store.UpdateUser(ctx, bson.D{{"user_name", notify.Agent}}, bson.D{{"$set", bson.D{{"acp", true}}}})
+			_ = store.UpdateUser(ctx, bson.D{{"username", notify.Agent}}, bson.D{{"$set", bson.D{{"acp", true}}}})
 		}
 	}()
 }
