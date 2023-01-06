@@ -1381,3 +1381,23 @@ INFO: 2023/01/06 13:15:15 listUserByConditions.go:35: Find record success, stora
 INFO: 2023/01/06 13:16:54 listUserByConditions.go:37: Find record success, storage return record and nil error
 INFO: 2023/01/06 13:19:47 listUserByConditions.go:38: Find record success, storage return record and nil error
 INFO: 2023/01/06 14:25:09 listUserByConditions.go:38: Find record success, storage return record and nil error
+INFO: 2023/01/06 14:26:11 listUserByConditions.go:38: Find record success, storage return record and nil error
+INFO: 2023/01/06 14:52:52 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 14:55:51 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 14:57:06 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 14:57:12 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 14:57:15 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 15:19:38 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/06 15:19:51 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/06 15:26:09 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 15:26:34 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 15:27:45 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 15:29:37 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 15:29:39 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 15:32:43 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 15:41:44 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 15:50:33 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 16:09:08 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 16:09:08 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/06 16:09:46 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 16:09:46 updateUser.go:22: update result success, storage return record and nil error

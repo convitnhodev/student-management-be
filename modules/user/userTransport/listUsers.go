@@ -1,7 +1,6 @@
 package userTransport
 
 import (
-	"fmt"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/paging"
 	"managerstudent/common/solveError"
@@ -28,7 +27,7 @@ func ListUsers(app component.AppContext) gin.HandlerFunc {
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
 		biz := userBiz.NewListUsersBiz(store)
 		data, err := biz.ListUsers(c.Request.Context(), filter, &page)
-		fmt.Println(data)
+
 		if err != nil {
 			c.JSON(400, err)
 			return

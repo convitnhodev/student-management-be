@@ -1,7 +1,6 @@
 package userTransport
 
 import (
-	"github.com/gin-gonic/gin"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
@@ -11,6 +10,8 @@ import (
 	"managerstudent/modules/user/userModel"
 	"managerstudent/modules/user/userStorage"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 func Login(appCtx component.AppContext) gin.HandlerFunc {

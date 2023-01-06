@@ -44,10 +44,9 @@ var (
 )
 
 type Token struct {
-	Token   string      `json:"token"`
-	Created time.Time   `json:"created"`
-	Expiry  int         `json:"expiry"`
-	Role    _const.Role `json:"role" bson:"role"`
+	Token   string    `json:"token"`
+	Created time.Time `json:"created"`
+	Expiry  int       `json:"expiry"`
 }
 
 type Account struct {
