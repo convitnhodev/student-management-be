@@ -15,6 +15,7 @@ import (
 	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/subcriber"
 	"managerstudent/modules/user/userTransport"
+	"managerstudent/rules"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
@@ -46,7 +47,6 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		user.PATCH("/update", userTransport.UpdateUser(appCtx))
 		user.PATCH("/accept", userTransport.AcceptUser(appCtx))
 		user.PATCH("/update/password", userTransport.UserUpdatePassword(appCtx))
-
 	}
 	student := r.Group("/student")
 	{
@@ -92,6 +92,12 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		notify.GET("/list", notificationTransport.ListNotifications(appCtx))
 		notify.POST("/acp/user", notificationTransport.AdminAcpNotifyUserRegister(appCtx))
 		notify.POST("/acp/student", notificationTransport.AdminAcpNotifyRequestAddStudent(appCtx))
+	}
+
+	rulesRoute := r.Group("/rules")
+	{
+		rulesRoute.GET("/get", rules.GetRules(appCtx))
+		rulesRoute.POST("/update", rules.UpdateRules(appCtx))
 	}
 	return r.Run(":8080")
 }
