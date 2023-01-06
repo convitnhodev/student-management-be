@@ -14,6 +14,7 @@ import (
 	"managerstudent/modules/result/resultTransport"
 	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/subcriber"
+	"managerstudent/modules/subject"
 	"managerstudent/modules/user/userTransport"
 	"managerstudent/rules"
 
@@ -77,6 +78,13 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		class.POST("/new", classTransport.CreateNewClass(appCtx))
 		class.DELETE("/delete", classTransport.DeleteClass(appCtx))
 		class.GET("/list", classTransport.ListClasses(appCtx))
+	}
+
+	subjectRoute := r.Group("/subject")
+	{
+		subjectRoute.POST("/new", subject.CreateSubject(appCtx))
+		subjectRoute.DELETE("/delete", subject.DeleteSubject(appCtx))
+		subjectRoute.GET("/list", subject.ListSubjects(appCtx))
 	}
 
 	course := r.Group("course")

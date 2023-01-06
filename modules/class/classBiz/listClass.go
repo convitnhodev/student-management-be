@@ -2,6 +2,7 @@ package classBiz
 
 import (
 	"context"
+	"fmt"
 	"managerstudent/common/paging"
 	"managerstudent/modules/class/classModel"
 )
@@ -23,6 +24,6 @@ func (biz *listClassesBiz) ListClasses(ctx context.Context, filter interface{}, 
 	if err != nil {
 		return nil, err
 	}
-
+	fmt.Println("data", data)
 	return data, nil
 }

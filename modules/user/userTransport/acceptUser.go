@@ -1,7 +1,6 @@
 package userTransport
 
 import (
-	"fmt"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
@@ -14,10 +13,8 @@ import (
 func AcceptUser(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		username := c.Request.URL.Query().Get("username")
-		fmt.Println(username)
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
 		user, err := store.FindUser(c.Request.Context(), bson.M{"username": username})
-		fmt.Println(user)
 
 		if err != nil {
 			c.JSON(400, err)

@@ -1405,3 +1405,15 @@ INFO: 2023/01/06 16:12:00 findUser.go:29: Find record success, storage return re
 INFO: 2023/01/06 16:12:00 updateUser.go:22: update result success, storage return record and nil error
 INFO: 2023/01/06 16:15:05 findUser.go:29: Find record success, storage return record and nil error
 INFO: 2023/01/06 16:16:59 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 18:10:51 findClass.go:19: Cant find record from database
+INFO: 2023/01/06 18:10:51 createClass.go:19: Insert New Class to DB success
+INFO: 2023/01/06 18:10:51 createNewClass.go:45: Create class ok
+INFO: 2023/01/06 18:11:39 findClass.go:19: Cant find record from database
+INFO: 2023/01/06 18:11:39 createClass.go:19: Insert New Class to DB success
+INFO: 2023/01/06 18:11:39 createNewClass.go:45: Create class ok
+INFO: 2023/01/06 18:12:50 findClass.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 18:12:50 createNewClass.go:34: Class existed
+INFO: 2023/01/06 23:44:38 listClassByCondition.go:31: Find record success, storage return record and nil error
+INFO: 2023/01/06 23:45:01 listClassByCondition.go:31: Find record success, storage return record and nil error
+INFO: 2023/01/06 23:46:04 listCourseByCondition.go:31: Find record success, storage return record and nil error
+INFO: 2023/01/07 00:17:12 listClassByCondition.go:31: Find record success, storage return record and nil error
