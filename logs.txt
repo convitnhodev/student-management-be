@@ -1373,3 +1373,11 @@ INFO: 2023/01/06 12:21:35 createNewNotification.go:18: Insert Notification to DB
 INFO: 2023/01/06 12:21:58 findUser.go:29: Find record success, storage return record and nil error
 INFO: 2023/01/06 12:22:24 findUser.go:29: Find record success, storage return record and nil error
 INFO: 2023/01/06 12:23:47 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 12:29:24 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 12:30:51 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 13:05:09 listUserByConditions.go:32: Find record success, storage return record and nil error
+INFO: 2023/01/06 13:11:39 listUserByConditions.go:32: Find record success, storage return record and nil error
+INFO: 2023/01/06 13:15:15 listUserByConditions.go:35: Find record success, storage return record and nil error
+INFO: 2023/01/06 13:16:54 listUserByConditions.go:37: Find record success, storage return record and nil error
+INFO: 2023/01/06 13:19:47 listUserByConditions.go:38: Find record success, storage return record and nil error
+INFO: 2023/01/06 14:25:09 listUserByConditions.go:38: Find record success, storage return record and nil error
