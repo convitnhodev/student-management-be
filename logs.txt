@@ -1265,3 +1265,111 @@ INFO: 2023/01/05 22:51:17 createNewUser.go:63: Create user ok
 INFO: 2023/01/05 22:51:17 createNewNotification.go:18: Insert Notification to DB success
 INFO: 2023/01/05 22:55:19 findUser.go:29: Find record success, storage return record and nil error
 INFO: 2023/01/05 22:55:49 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 00:23:41 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 00:23:41 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 00:23:41 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 00:23:41 createNewUser.go:64: Create user ok
+INFO: 2023/01/06 00:23:41 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 00:33:41 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 00:33:41 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 00:33:41 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 00:33:41 createNewUser.go:64: Create user ok
+INFO: 2023/01/06 00:33:41 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 09:29:06 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 09:29:06 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 09:29:06 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 09:29:06 createNewUser.go:64: Create user ok
+INFO: 2023/01/06 09:29:06 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 09:31:28 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:31:28 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:32:40 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 09:32:40 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 09:32:40 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 09:32:40 createNewUser.go:64: Create user ok
+INFO: 2023/01/06 09:32:40 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 09:33:35 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 09:33:35 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 09:33:35 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 09:33:35 createNewUser.go:64: Create user ok
+INFO: 2023/01/06 09:33:35 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 09:37:45 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:37:45 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:40:08 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:40:08 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:40:42 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:40:42 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:41:54 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:41:54 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:42:20 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:42:20 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:42:47 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 09:42:47 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 09:42:47 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 09:42:47 createNewUser.go:64: Create user ok
+INFO: 2023/01/06 09:42:47 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 09:46:00 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:46:00 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:46:37 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 09:46:37 createNewUser.go:42: User's not new
+INFO: 2023/01/06 09:46:44 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 09:46:44 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 09:46:44 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 09:46:44 createNewUser.go:64: Create user ok
+INFO: 2023/01/06 09:46:44 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 10:22:48 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 10:22:52 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 10:35:53 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:41:43 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:42:17 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:43:27 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:43:59 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:45:21 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:47:31 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:47:51 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:49:05 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:51:23 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:51:43 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:51:45 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:52:12 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:55:33 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 10:55:56 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 11:10:59 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 11:10:59 createNewUser.go:47: Check user ok, can create currently user
+INFO: 2023/01/06 11:10:59 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 11:10:59 createNewUser.go:66: Create user ok
+INFO: 2023/01/06 11:10:59 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 11:11:11 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 11:14:09 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 11:14:09 createNewUser.go:47: Check user ok, can create currently user
+INFO: 2023/01/06 11:14:09 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 11:14:09 createNewUser.go:67: Create user ok
+INFO: 2023/01/06 11:14:09 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 11:14:18 findUser.go:29: Find record success, storage return record and nil error
+WARNING2023/01/06 11:14:18 createNewUser.go:43: User's not new
+INFO: 2023/01/06 11:18:27 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 11:18:27 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 11:18:27 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 11:18:27 createNewUser.go:66: Create user ok
+INFO: 2023/01/06 11:18:27 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 11:33:06 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 11:33:06 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 11:33:06 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 11:33:06 createNewUser.go:66: Create user ok
+INFO: 2023/01/06 11:33:06 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 11:34:03 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 11:35:05 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 11:35:17 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 11:35:41 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 11:36:31 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 11:36:38 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 11:37:01 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 11:49:01 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 11:50:47 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 12:21:35 findUser.go:19: Cant find record from database
+INFO: 2023/01/06 12:21:35 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/06 12:21:35 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/06 12:21:35 createNewUser.go:66: Create user ok
+INFO: 2023/01/06 12:21:35 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/06 12:21:58 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 12:22:24 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/06 12:23:47 findUser.go:29: Find record success, storage return record and nil error

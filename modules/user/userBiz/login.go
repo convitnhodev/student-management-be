@@ -43,7 +43,7 @@ func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) 
 		return nil, solveError.ErrEntityNotExisted("User", nil)
 	}
 
-	if user.Acp == false {
+	if !user.Acp {
 		return nil, solveError.ErrEntityNotExisted("User", errors.New("User is not acp"))
 	}
 

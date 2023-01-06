@@ -48,6 +48,8 @@ func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.Use
 	data.Salt = salt
 	data.Acp = false
 	data.Password = biz.hasher.HashMd5(salt + data.Password + salt)
+	// data.Role = _const.Role(0)
+	fmt.Println(data)
 	if err := biz.store.CreateUser(ctx, data); err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return solveError.ErrDB(err)
