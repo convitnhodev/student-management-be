@@ -44,5 +44,4 @@ func (biz *createClassBiz) CreateNewClass(ctx context.Context, data *classModel.
 
 	managerLog.InfoLogger.Println("Create class ok")
 	return nil
-
 }
