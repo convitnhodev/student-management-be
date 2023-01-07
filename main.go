@@ -16,14 +16,16 @@ import (
 	"managerstudent/modules/result/resultTransport"
 	"managerstudent/modules/student/studentTransport"
 	"managerstudent/modules/subject"
+	"managerstudent/modules/user/userTransport"
 	"managerstudent/rules"
 )
 
 func main() {
 	managerLog.InitLogs()
 	db := setupDatabase.InitMongoDB()
+	redis := setupDatabase.InitRedis()
 	fmt.Println(db)
-	if err := runService(db, nil); err != nil {
+	if err := runService(db, redis); err != nil {
 		log.Fatalln(err)
 	}
 
@@ -34,19 +36,19 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
 	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
 	r.Use(middleware.CORSMiddleware())
-	//user := r.Group("/user")
-	//{
-	//	user.POST("/register", userTransport.UserRegister(appCtx))
-	//	user.POST("/login", userTransport.Login(appCtx))
-	//	user.GET("/list", userTransport.ListUsers(appCtx))
-	//	user.GET("/get", userTransport.GetByUsername(appCtx))
-	//	user.POST("/update/homeroom", userTransport.UpdateHomeroom(appCtx))
-	//	user.POST("/update/teaching", userTransport.UpdateTeaching(appCtx))
-	//	user.PATCH("/update", userTransport.UpdateUser(appCtx))
-	//	user.PATCH("/accept", userTransport.AcceptUser(appCtx))
-	//	user.PATCH("/update/password", userTransport.UserUpdatePassword(appCtx))
-	//	user.GET("/profile", middleware.RequireAuth(appCtx), userTransport.GetProfile(appCtx))
-	//}
+	user := r.Group("/user")
+	{
+		user.POST("/register", userTransport.UserRegister(appCtx))
+		user.POST("/login", userTransport.Login(appCtx))
+		user.GET("/list", userTransport.ListUsers(appCtx))
+		user.GET("/get", userTransport.GetByUsername(appCtx))
+		user.POST("/update/homeroom", userTransport.UpdateHomeroom(appCtx))
+		user.POST("/update/teaching", userTransport.UpdateTeaching(appCtx))
+		user.PATCH("/update", userTransport.UpdateUser(appCtx))
+		user.PATCH("/accept", userTransport.AcceptUser(appCtx))
+		user.PATCH("/update/password", userTransport.UserUpdatePassword(appCtx))
+		user.GET("/profile", middleware.RequireAuth(appCtx), userTransport.GetProfile(appCtx))
+	}
 	student := r.Group("/student")
 	{
 		student.POST("/new", studentTransport.AddStudent(appCtx))
@@ -97,9 +99,6 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		}
 	}
 
-	teacher := r.Group("/teacher", middleware.RequireAuth(appCtx), middleware.RequireRole(appCtx, 1))
-	{
 
-	}
 	return r.Run(":8080")
 }

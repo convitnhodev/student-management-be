@@ -13,6 +13,7 @@ type TimeJWT struct {
 
 type appCtx struct {
 	db      *mongo.Client
+
 	secret  string
 	redis   *redis.Client
 	TimeJWT TimeJWT
