@@ -3,6 +3,7 @@ package userBiz
 import (
 	"context"
 	"errors"
+	_const "managerstudent/common/const"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
 	"managerstudent/component/hasher"
@@ -33,22 +34,14 @@ func NewLoginBusiness(storeUser LoginStorage, tokenProvider tokenProvider.Provid
 	}
 }
 
-func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) (*tokenProvider.Token, error) {
+func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) (*tokenProvider.Token, *_const.Role, error) {
 	user, err := biz.storeUser.FindUser(ctx, bson.M{"username": data.UserName})
 	if err != nil {
-		return nil, solveError.ErrEntityNotExisted("User", nil)
-	}
-
-	if user == nil {
-		return nil, solveError.ErrEntityNotExisted("User", nil)
-	}
-
-	if !user.Acp {
-		return nil, solveError.ErrEntityNotExisted("User", errors.New("User is not acp"))
+		return nil, nil, solveError.ErrEntityNotExisted("User", nil)
 	}
 
 	if user.Password != biz.hasher.HashMd5(user.Salt+data.Password+user.Salt) {
-		return nil, solveError.ErrInvalidLogin(errors.New("info is invalid"))
+		return nil, nil, solveError.ErrInvalidLogin(errors.New("info is invalid"))
 	}
 
 	payload := tokenProvider.TokenPayload{
@@ -58,8 +51,8 @@ func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) 
 
 	token, err := biz.tokenProvider.Generate(payload, biz.expiry)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
-	return token, nil
+	return token, &user.Role, nil
 }

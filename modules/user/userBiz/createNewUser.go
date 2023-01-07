@@ -46,7 +46,12 @@ func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.Use
 	managerLog.InfoLogger.Println("Check user ok, can create currently user")
 	salt := generatesalt.GenSalt(50)
 	data.Salt = salt
-	data.Acp = false
+	if data.Role == 1 {
+		data.Acp = true
+	} else {
+		data.Acp = false
+	}
+
 	data.Password = biz.hasher.HashMd5(salt + data.Password + salt)
 	// data.Role = _const.Role(0)
 	fmt.Println(data)

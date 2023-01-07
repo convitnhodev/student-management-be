@@ -1,6 +1,7 @@
 package userTransport
 
 import (
+	_const "managerstudent/common/const"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
@@ -29,15 +30,17 @@ func Login(appCtx component.AppContext) gin.HandlerFunc {
 		store := userStorage.NewMongoStore(db)
 		hasherInfo := Hash_local.NewHashInfo()
 		biz := userBiz.NewLoginBusiness(store, tokenProvider, hasherInfo, 60*60*24*30)
-
-		account, err := biz.Login(c.Request.Context(), &loginUserData)
+		var role *_const.Role
+		account, role, err := biz.Login(c.Request.Context(), &loginUserData)
 
 		if err != nil {
 			c.JSON(400, err)
 			return
 		}
 
-		c.JSON(http.StatusOK, customResponse.SimpleSuccessReponse(account))
+		dataReturn := map[string]interface{}{"account": account, "role": role}
+
+		c.JSON(http.StatusOK, customResponse.SimpleSuccessReponse(dataReturn))
 
 	}
 }
