@@ -58,6 +58,10 @@ func ErrInvalidRequest(err error) *AppError {
 	return NewErrorResponse(err, "invalid request", err.Error(), "Invalid_request")
 }
 
+func ErrNoPermission(err error) *AppError {
+	return NewErrorResponse(err, "no permission", err.Error(), "Invalid_permission")
+}
+
 func ErrInternal(err error) *AppError {
 	return NewFullErrorResponse(http.StatusInternalServerError, err, "internal error", err.Error(), "Internal_ERR")
 }

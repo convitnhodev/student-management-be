@@ -32,6 +32,10 @@ func (user *User) GetRole() string {
 	return user.Role.String()
 }
 
+func (user *User) GetRoleInt() _const.Role {
+	return user.Role
+}
+
 type UpdatePassWord struct {
 	UserName    string `json:"username" bson:"username,omitempty"`
 	Password    string `json:"password" bson:"password,omitempty"`
