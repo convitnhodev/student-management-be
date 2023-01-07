@@ -47,6 +47,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		user.PATCH("/update", userTransport.UpdateUser(appCtx))
 		user.PATCH("/accept", userTransport.AcceptUser(appCtx))
 		user.PATCH("/update/password", userTransport.UserUpdatePassword(appCtx))
+		user.GET("/profile", middleware.RequireAuth(appCtx), userTransport.GetProfile(appCtx))
 	}
 	student := r.Group("/student")
 	{

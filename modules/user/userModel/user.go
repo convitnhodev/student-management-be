@@ -28,6 +28,10 @@ func (user *User) GetUserName() string {
 	return user.UserName
 }
 
+func (user *User) GetRole() string {
+	return user.Role.String()
+}
+
 type UpdatePassWord struct {
 	UserName    string `json:"username" bson:"username,omitempty"`
 	Password    string `json:"password" bson:"password,omitempty"`

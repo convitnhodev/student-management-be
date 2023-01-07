@@ -7,11 +7,6 @@ const (
 	Manager
 )
 
-const CurrentUser = "User"
-
 func (r Role) String() string {
 	return []string{"Teacher", "Manager"}[r]
-}
-
-type Requester interface {
 }

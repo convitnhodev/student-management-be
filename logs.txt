@@ -1485,3 +1485,14 @@ INFO: 2023/01/07 15:03:16 findClass.go:29: Find record success, storage return r
 INFO: 2023/01/07 15:03:21 findClass.go:19: Cant find record from database
 INFO: 2023/01/07 15:03:25 findClass.go:29: Find record success, storage return record and nil error
 >>>>>>> b489a116b0b4ec1ef318db598f0d437c4bb5787d
+INFO: 2023/01/07 15:58:57 findClass.go:19: Cant find record from database
+INFO: 2023/01/07 15:58:57 createClass.go:19: Insert New Class to DB success
+INFO: 2023/01/07 15:58:57 createNewClass.go:45: Create class ok
+INFO: 2023/01/07 15:59:34 findClass.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 16:16:27 findUser.go:19: Cant find record from database
+INFO: 2023/01/07 16:16:27 createNewUser.go:46: Check user ok, can create currently user
+INFO: 2023/01/07 16:16:27 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/07 16:16:27 createNewUser.go:66: Create user ok
+INFO: 2023/01/07 16:17:40 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 16:17:54 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 16:18:14 findUser.go:29: Find record success, storage return record and nil error
