@@ -1258,3 +1258,13 @@ INFO: 2023/01/02 23:46:31 createNewUser.go:45: Check user ok, can create current
 INFO: 2023/01/02 23:47:09 createUser.go:18: Create record success, return nil error
 INFO: 2023/01/02 23:47:09 createNewUser.go:63: Create user ok
 INFO: 2023/01/02 23:47:09 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/02 23:47:47 findUser.go:19: Cant find record from database
+INFO: 2023/01/02 23:47:47 createNewUser.go:45: Check user ok, can create currently user
+INFO: 2023/01/02 23:47:47 createUser.go:18: Create record success, return nil error
+INFO: 2023/01/02 23:47:47 createNewUser.go:63: Create user ok
+INFO: 2023/01/02 23:47:47 createNewNotification.go:18: Insert Notification to DB success
+INFO: 2023/01/02 23:47:53 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/02 23:47:53 updatePassword.go:42: Check user ok, can create currently user
+INFO: 2023/01/02 23:48:01 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/02 23:48:01 updatePassword.go:42: Check user ok, can create currently user
+INFO: 2023/01/02 23:48:01 updateUser.go:22: update result success, storage return record and nil error
