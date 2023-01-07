@@ -1417,3 +1417,6 @@ INFO: 2023/01/06 23:44:38 listClassByCondition.go:31: Find record success, stora
 INFO: 2023/01/06 23:45:01 listClassByCondition.go:31: Find record success, storage return record and nil error
 INFO: 2023/01/06 23:46:04 listCourseByCondition.go:31: Find record success, storage return record and nil error
 INFO: 2023/01/07 00:17:12 listClassByCondition.go:31: Find record success, storage return record and nil error
+INFO: 2023/01/07 08:31:34 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 08:33:43 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 08:33:55 updateUser.go:22: update result success, storage return record and nil error

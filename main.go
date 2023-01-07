@@ -45,6 +45,8 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		user.POST("/login", userTransport.Login(appCtx))
 		user.GET("/list", userTransport.ListUsers(appCtx))
 		user.GET("/get", userTransport.GetByUsername(appCtx))
+		user.POST("/update/homeroom", userTransport.UpdateHomeroom(appCtx))
+		user.POST("/update/teaching", userTransport.UpdateTeaching(appCtx))
 		user.PATCH("/update", userTransport.UpdateUser(appCtx))
 		user.PATCH("/accept", userTransport.AcceptUser(appCtx))
 		user.PATCH("/update/password", userTransport.UserUpdatePassword(appCtx))
