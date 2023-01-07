@@ -42,14 +42,12 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		register.POST("", userTransport.UserRegister(appCtx))
 	}
 
-	r.Use(middleware.RequireAuth(appCtx))
-
 	subjectRoute := r.Group("/subject")
 	{
 		subjectRoute.POST("/new", subjectTransport.NewCreateSubject(appCtx))
 		subjectRoute.DELETE("/delete", subjectTransport.DeleteSubject(appCtx))
 		subjectRoute.GET("/list", subjectTransport.ListSubjects(appCtx))
-		subjectRoute.GET("/get", subjectTransport.GetSubject(appCtx))
+		subjectRoute.GET("/get", middleware.RequireAuth(appCtx), subjectTransport.GetSubject(appCtx))
 	}
 
 	user := r.Group("/user")
@@ -101,7 +99,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		class.GET("/get", classTransport.GetClass(appCtx))
 	}
 
-	admin := r.Group("/admin", middleware.RequireAuth(appCtx), middleware.RequireRole(appCtx, 1))
+	admin := r.Group("/admin")
 	{
 		rulesRoute := admin.Group("/rules")
 		{

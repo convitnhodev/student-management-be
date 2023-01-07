@@ -37,7 +37,7 @@ func RequireAuth(appCtx component.AppContext) func(c *gin.Context) {
 
 	return func(c *gin.Context) {
 
-		token, err := c.Cookie("user")
+		token, err := extractTokenFromHeaderString(c.GetHeader("Authorization"))
 		if err != nil {
 			panic(err)
 		}
