@@ -4,24 +4,22 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/customResponse"
-	"managerstudent/common/paging"
-	"managerstudent/common/solveError"
 	"managerstudent/component"
 	"managerstudent/modules/subject/subjectBiz"
 	"managerstudent/modules/subject/subjectStorage"
 )
 
-func ListSubjects(app component.AppContext) gin.HandlerFunc {
+func GetSubject(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		var page paging.Paging
-		if err := c.ShouldBind(&page); err != nil {
-			panic(solveError.ErrInvalidRequest(err))
+		id, ok := c.GetQuery("id")
+		if ok == false {
+			panic("id is not exist")
 		}
 
 		store := subjectStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := subjectBiz.NewListSubjectBiz(store)
-		data, err := biz.ListSubject(c.Request.Context(), bson.M{}, &page)
+		biz := subjectBiz.NewGetSubjectBiz(store)
+		data, err := biz.GetSubject(c.Request.Context(), bson.M{"id": id})
 		if err != nil {
 			c.JSON(400, err)
 			return

@@ -42,6 +42,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		subjectRoute.POST("/new", subjectTransport.NewCreateSubject(appCtx))
 		subjectRoute.DELETE("/delete", subjectTransport.DeleteSubject(appCtx))
 		subjectRoute.GET("/list", subjectTransport.ListSubjects(appCtx))
+		subjectRoute.GET("/get", subjectTransport.GetSubject(appCtx))
 	}
 
 	user := r.Group("/user")
@@ -90,7 +91,6 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 			course.GET("/list", courseTransport.ListCourses(appCtx))
 		}
 
-
 		class := admin.Group("/class")
 		{
 			class.POST("/new", classTransport.CreateNewClass(appCtx))
@@ -100,7 +100,6 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 			class.GET("/get", classTransport.GetClass(appCtx))
 		}
 	}
-
 
 	return r.Run(":8080")
 }
