@@ -12,11 +12,9 @@ import (
 
 func ListSubjects(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
-
-		filter, _ := c.GetQuery("class_id")
 		store := subjectStorage.NewMongoStore(app.GetNewDataMongoDB())
 		biz := subjectBiz.NewListSubjectBiz(store)
-		data, err := biz.ListSubject(c.Request.Context(), filter)
+		data, err := biz.ListSubject(c.Request.Context(), nil)
 		if err != nil {
 			c.JSON(400, err)
 			return
