@@ -75,6 +75,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		result.DELETE("/delete", resultTransport.DeleteResults(appCtx))
 		result.PATCH("/update", resultTransport.UpdateResult(appCtx))
 		result.GET("/get", resultTransport.GetAvgResult(appCtx))
+		result.GET("/list", resultTransport.ListResult(appCtx))
 	}
 
 	course := r.Group("course")

@@ -37,16 +37,14 @@ func RequireAuth(appCtx component.AppContext) func(c *gin.Context) {
 
 	return func(c *gin.Context) {
 
-		token, err := extractTokenFromHeaderString(c.GetHeader("Authorization"))
+		token, err := c.Cookie("user")
 		if err != nil {
 			panic(err)
 		}
 
-
-
 		redisClient := appCtx.GetRedis()
 
-		data,err := redisClient.Get(token).Bytes()
+		data, err := redisClient.Get(token).Bytes()
 		var resultData userModel.User
 		err = json.Unmarshal(data, &resultData)
 		if err != nil {
@@ -77,7 +75,7 @@ func RequireAuth(appCtx component.AppContext) func(c *gin.Context) {
 		if err != nil {
 			panic(err)
 		}
-		err = redisClient.Set(token, jsonUser, 3600 * 24 * 3).Err()
+		err = redisClient.Set(token, jsonUser, 3600*24*3).Err()
 		if err != nil {
 			panic(err)
 		}

@@ -25,7 +25,7 @@ func UserRegister(app component.AppContext) gin.HandlerFunc {
 			c.JSON(400, err)
 			return
 		}
-		dataReturn := map[string]interface{}{"user_name": data.UserName, "role": data.Role}
-		c.JSON(200, customResponse.SimpleSuccessReponse(dataReturn))
+
+		c.JSON(200, customResponse.SimpleSuccessReponse(data.UserName))
 	}
 }

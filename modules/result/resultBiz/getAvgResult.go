@@ -3,13 +3,12 @@ package resultBiz
 import (
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
-	"managerstudent/common/solveError"
-	"managerstudent/component/managerLog"
-	"managerstudent/modules/student/studentModel"
+	"managerstudent/common/paging"
+	"managerstudent/modules/result/resultModel"
 )
 
 type CountResultStore interface {
-	ListResultByConditions(ctx context.Context, conditions interface{}) ([]studentModel.Result, error)
+	ListResultByConditions(ctx context.Context, conditions interface{}, page *paging.Paging) ([]resultModel.Result, error)
 }
 
 type countResultBiz struct {
@@ -21,12 +20,9 @@ func NewCountAvgMarkBiz(store CountResultStore) *countResultBiz {
 }
 
 func (biz *countResultBiz) CountResult(ctx context.Context, idStudent interface{}) (*float64, error) {
-	result, err := biz.store.ListResultByConditions(ctx, bson.M{"id_student": idStudent})
+	result, err := biz.store.ListResultByConditions(ctx, bson.M{"id_student": idStudent}, nil)
 	if err != nil {
-		if err.Error() != solveError.RecordNotFound {
-			managerLog.ErrorLogger.Println("Some thing error in storage mark, may be from database")
-			return nil, solveError.ErrDB(err)
-		}
+		return nil, err
 	}
 	var sum float64
 	for _, value := range result {
