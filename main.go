@@ -52,7 +52,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	{
 		student.POST("/new", studentTransport.AddStudent(appCtx))
 		student.PATCH("/update", studentTransport.UpdateStudent(appCtx))
-		//student.GET("/get", studentTransport.GetStudent(appCtx))
+		student.GET("/get", studentTransport.GetStudent(appCtx))
 		//student.POST("/class", studentTransport.AddStudentToClass(appCtx))
 		//student.POST("/course", studentTransport.AddStudentToCourse(appCtx))
 		//student.DELETE("/delete", studentTransport.DeleteStudent(appCtx))
@@ -71,6 +71,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		class.POST("/new", classTransport.CreateNewClass(appCtx))
 		class.DELETE("/delete", classTransport.DeleteClass(appCtx))
 		class.GET("/list", classTransport.ListClasses(appCtx))
+		class.GET("/list/student", classTransport.ListStudents(appCtx))
 	}
 
 	subjectRoute := r.Group("/subject")

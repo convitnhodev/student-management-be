@@ -10,14 +10,16 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func (db *mongoStore) UpdateClass(ctx context.Context, conditions interface{}, value interface{}) error {
+func (db *mongoStore) AddStudent(ctx context.Context, condition interface{}, studentId string) error {
 	collection := db.db.Database(setupDatabase.NameDB).Collection(classModel.NameCollection)
 
 	data := bson.M{
-		"$set": value,
+		"$push": bson.M{
+			"list_student_id": studentId,
+		},
 	}
 
-	_, err := collection.UpdateOne(ctx, conditions, data)
+	_, err := collection.UpdateOne(ctx, condition, data)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Can't update to DB, something DB is error")
 		return solveError.ErrDB(err)
