@@ -74,6 +74,23 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		result.POST("/new", resultTransport.AddResult(appCtx))
 		result.DELETE("/delete", resultTransport.DeleteResults(appCtx))
 		result.PATCH("/update", resultTransport.UpdateResult(appCtx))
+		result.GET("/get", resultTransport.GetAvgResult(appCtx))
+	}
+
+	course := r.Group("course")
+	{
+		course.POST("/new", courseTransport.CreateNewCourse(appCtx))
+		course.DELETE("/delete", courseTransport.DeleteCourse(appCtx))
+		course.GET("/list", courseTransport.ListCourses(appCtx))
+	}
+
+	class := r.Group("/class")
+	{
+		class.POST("/new", classTransport.CreateNewClass(appCtx))
+		class.DELETE("/delete", classTransport.DeleteClass(appCtx))
+		class.GET("/list", classTransport.ListClasses(appCtx))
+		class.GET("/list/student", classTransport.ListStudents(appCtx))
+		class.GET("/get", classTransport.GetClass(appCtx))
 	}
 
 	admin := r.Group("/admin", middleware.RequireAuth(appCtx), middleware.RequireRole(appCtx, 1))
@@ -82,22 +99,6 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		{
 			rulesRoute.GET("/get", rules.GetRules(appCtx))
 			rulesRoute.POST("/update", rules.UpdateRules(appCtx))
-		}
-
-		course := admin.Group("course")
-		{
-			course.POST("/new", courseTransport.CreateNewCourse(appCtx))
-			course.DELETE("/delete", courseTransport.DeleteCourse(appCtx))
-			course.GET("/list", courseTransport.ListCourses(appCtx))
-		}
-
-		class := admin.Group("/class")
-		{
-			class.POST("/new", classTransport.CreateNewClass(appCtx))
-			class.DELETE("/delete", classTransport.DeleteClass(appCtx))
-			class.GET("/list", classTransport.ListClasses(appCtx))
-			class.GET("/list/student", classTransport.ListStudents(appCtx))
-			class.GET("/get", classTransport.GetClass(appCtx))
 		}
 	}
 
