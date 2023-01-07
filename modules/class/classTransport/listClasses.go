@@ -1,7 +1,6 @@
 package classTransport
 
 import (
-	"github.com/gin-gonic/gin"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/paging"
 	"managerstudent/common/solveError"
@@ -9,6 +8,8 @@ import (
 	"managerstudent/modules/class/classBiz"
 	"managerstudent/modules/class/classModel"
 	"managerstudent/modules/class/classStorage"
+
+	"github.com/gin-gonic/gin"
 )
 
 func ListClasses(app component.AppContext) gin.HandlerFunc {
@@ -19,7 +20,7 @@ func ListClasses(app component.AppContext) gin.HandlerFunc {
 		}
 
 		var filter classModel.Filter
-		if err := c.BindJSON(&filter); err != nil {
+		if err := c.ShouldBind(&filter); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 

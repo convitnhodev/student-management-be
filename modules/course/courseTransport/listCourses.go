@@ -1,13 +1,14 @@
 package courseTransport
 
 import (
-	"github.com/gin-gonic/gin"
 	"managerstudent/common/paging"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
 	"managerstudent/modules/class/classModel"
 	"managerstudent/modules/course/courseBiz"
 	"managerstudent/modules/course/courseStorage"
+
+	"github.com/gin-gonic/gin"
 )
 
 func ListCourses(app component.AppContext) gin.HandlerFunc {
@@ -18,7 +19,7 @@ func ListCourses(app component.AppContext) gin.HandlerFunc {
 		}
 
 		var filter classModel.Filter
-		if err := c.BindJSON(&filter); err != nil {
+		if err := c.ShouldBind(&filter); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 

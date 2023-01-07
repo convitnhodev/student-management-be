@@ -8,20 +8,20 @@ import (
 const NameCollection = "Users"
 
 type User struct {
-	UserName string      `json:"user_name,omitempty" bson:"user_name,omitempty"`
-	Password string      `json:"pass_word,omitempty" bson:"pass_word,omitempty"`
-	FullName string      `json:"full_name,omitempty" bson:"full_name,omitempty"`
-	Class    string      `json:"class,omitempty" bson:"class,omitempty"`
-	Role     _const.Role `json:"role,omitempty" bson:"role,omitempty"`
-	School   string      `json:"school,omitempty" bson:"school,omitempty"`
-	Salt     string      `json:"-" bson:"salt,omitempty"`
-	Token    string      `json:"-" bson:"token,omitempty"`
-	Phone    string      `json:"phone" bson:"phone,omitempty"`
-	Gmail    string      `json:"gmail" bson:"gmail,omitempty"`
-	Acp      bool        `json:"acp" bson:"acp,omitempty"`
-	sex      bool        `json:"sex" bson:"sex,omitempty""`
-	address  string      `json:"address" bson:"address,omitempty"`
-	dob      time.Time   `json:"dob" bson:"dob,omitempty"`
+	UserName        string      `json:"username" bson:"username"`
+	Password        string      `json:"password" bson:"password"`
+	FullName        string      `json:"fullname" bson:"fullname"`
+	Class           string      `json:"class" bson:"class"`
+	TeachingClasses []string    `json:"teaching_classes" bson:"teaching_classes"`
+	Role            _const.Role `json:"role" bson:"role"`
+	Salt            string      `json:"-" bson:"salt"`
+	Token           string      `json:"-" bson:"token"`
+	Phone           string      `json:"phone" bson:"phone"`
+	Gmail           string      `json:"gmail" bson:"gmail"`
+	Acp             bool        `json:"acp" bson:"acp"`
+	Sex             bool        `json:"sex" bson:"sex"`
+	Address         string      `json:"address" bson:"address"`
+	Dob             time.Time   `json:"dob" bson:"dob"`
 }
 
 func (user *User) GetUserName() string {
@@ -29,7 +29,17 @@ func (user *User) GetUserName() string {
 }
 
 type UpdatePassWord struct {
-	UserName    string `json:"user_name" bson:"user_name,omitempty"`
-	Password    string `json:"pass_word" bson:"pass_word,omitempty"`
-	NewPassword string `json:"new_pass_word"`
+	UserName    string `json:"username" bson:"username,omitempty"`
+	Password    string `json:"password" bson:"password,omitempty"`
+	NewPassword string `json:"new_password"`
+}
+
+type UpdateHomeroom struct {
+	UserName string `json:"username" bson:"username,omitempty"`
+	Class    string `json:"class" bson:"class,omitempty"`
+}
+
+type UpdateTeaching struct {
+	UserName        string   `json:"username" bson:"username,omitempty"`
+	TeachingClasses []string `json:"teaching_classes" bson:"teaching_classes,omitempty"`
 }

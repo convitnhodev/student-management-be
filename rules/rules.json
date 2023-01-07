@@ -1,0 +1,6 @@
+{
+  "MinAge": 2,
+  "MaxAge": 50,
+  "MaxStudent": 50,
+  "PassingGrade": 5
+}

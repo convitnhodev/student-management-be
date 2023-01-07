@@ -54,6 +54,6 @@ type Account struct {
 }
 
 type TokenPayload struct {
-	UserName string      `json:"user_name" bson:"user_name,omitempty"`
+	UserName string      `json:"username" bson:"username,omitempty"`
 	Role     _const.Role `json:"role" bson:"role"`
 }

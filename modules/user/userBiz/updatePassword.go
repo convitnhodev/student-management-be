@@ -3,11 +3,12 @@ package userBiz
 import (
 	"context"
 	"fmt"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component/hasher"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/user/userModel"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type UpdatePasswordStore interface {
@@ -26,7 +27,7 @@ func NewUpdatepasswordBusiness(store UpdateUserStore, hasher hasher.HasherInfo) 
 
 func (biz *updatePasswordBusiness) UpdatePasswordOfUser(ctx context.Context, conditions interface{}, data *userModel.UpdatePassWord) error {
 
-	user, err := biz.store.FindUser(ctx, bson.M{"user_name": data.UserName})
+	user, err := biz.store.FindUser(ctx, bson.M{"username": data.UserName})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
@@ -45,7 +46,7 @@ func (biz *updatePasswordBusiness) UpdatePasswordOfUser(ctx context.Context, con
 		return solveError.ErrInvalidCurrentPassword()
 	}
 
-	pass := bson.M{"pass_word": biz.hasher.HashMd5(user.Salt + data.NewPassword + user.Salt)}
+	pass := bson.M{"password": biz.hasher.HashMd5(user.Salt + data.NewPassword + user.Salt)}
 	if err := biz.store.UpdateUser(ctx, conditions, pass); err != nil {
 		return err
 	}

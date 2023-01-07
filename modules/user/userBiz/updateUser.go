@@ -2,11 +2,12 @@ package userBiz
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component/hasher"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/user/userModel"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type UpdateUserStore interface {
@@ -25,7 +26,7 @@ func NewUpdateBusiness(store UpdateUserStore, hasher hasher.HasherInfo) *updateB
 
 func (biz *updateBusiness) UpdateUser(ctx context.Context, conditions interface{}, data *userModel.User) error {
 
-	user, err := biz.store.FindUser(ctx, bson.M{"user_name": data.UserName})
+	user, err := biz.store.FindUser(ctx, bson.M{"username": data.UserName})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")

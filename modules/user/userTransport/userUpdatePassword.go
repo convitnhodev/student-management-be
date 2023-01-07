@@ -1,8 +1,6 @@
 package userTransport
 
 import (
-	"github.com/gin-gonic/gin"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
@@ -10,6 +8,9 @@ import (
 	"managerstudent/modules/user/userBiz"
 	"managerstudent/modules/user/userModel"
 	"managerstudent/modules/user/userStorage"
+
+	"github.com/gin-gonic/gin"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 func UserUpdatePassword(app component.AppContext) gin.HandlerFunc {
@@ -21,7 +22,7 @@ func UserUpdatePassword(app component.AppContext) gin.HandlerFunc {
 			panic(solveError.ErrInvalidRequest(err))
 		}
 
-		filter := bson.D{{"user_name", data.UserName}}
+		filter := bson.D{{"username", data.UserName}}
 
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
 		md5 := Hash_local.NewHashInfo()

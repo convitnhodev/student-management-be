@@ -47,7 +47,7 @@ package middleware
 //			panic(err)
 //		}
 //
-//		user, err := store.FindUser(c.Request.Context(), bson.M{"user_name": payload.UserName})
+//		user, err := store.FindUser(c.Request.Context(), bson.M{"username": payload.UserName})
 //		if err != nil {
 //			panic(err)
 //		}

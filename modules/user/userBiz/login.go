@@ -3,12 +3,13 @@ package userBiz
 import (
 	"context"
 	"errors"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
 	"managerstudent/component/hasher"
 	"managerstudent/component/tokenProvider"
 	"managerstudent/modules/user/userModel"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type LoginStorage interface {
@@ -33,7 +34,7 @@ func NewLoginBusiness(storeUser LoginStorage, tokenProvider tokenProvider.Provid
 }
 
 func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) (*tokenProvider.Token, error) {
-	user, err := biz.storeUser.FindUser(ctx, bson.M{"user_name": data.UserName})
+	user, err := biz.storeUser.FindUser(ctx, bson.M{"username": data.UserName})
 	if err != nil {
 		return nil, solveError.ErrEntityNotExisted("User", nil)
 	}
@@ -42,7 +43,7 @@ func (biz *loginBusiness) Login(ctx context.Context, data *userModel.UserLogin) 
 		return nil, solveError.ErrEntityNotExisted("User", nil)
 	}
 
-	if user.Acp == false {
+	if !user.Acp {
 		return nil, solveError.ErrEntityNotExisted("User", errors.New("User is not acp"))
 	}
 

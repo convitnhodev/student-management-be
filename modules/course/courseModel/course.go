@@ -13,5 +13,3 @@ type Course struct {
 	MaxTotal      int      `json:"max_total" bson:"max_total"`
 	MinMark       float64  `json:"min_mark" bson:"min_mark"`
 }
-
-

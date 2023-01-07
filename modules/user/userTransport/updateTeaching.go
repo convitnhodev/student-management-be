@@ -4,8 +4,6 @@ import (
 	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
-	"managerstudent/component/hasher/Hash_local"
-	"managerstudent/modules/user/userBiz"
 	"managerstudent/modules/user/userModel"
 	"managerstudent/modules/user/userStorage"
 
@@ -13,10 +11,10 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func UpdateUser(app component.AppContext) gin.HandlerFunc {
+func UpdateTeaching(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		var data userModel.User
+		var data userModel.UpdateTeaching
 
 		if err := c.ShouldBind(&data); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
@@ -25,13 +23,17 @@ func UpdateUser(app component.AppContext) gin.HandlerFunc {
 		filter := bson.D{{"username", data.UserName}}
 
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
-		md5 := Hash_local.NewHashInfo()
-		biz := userBiz.NewUpdateBusiness(store, md5)
-		err := biz.UpdateUser(c.Request.Context(), filter, &data)
+		_, err := store.FindUser(c.Request.Context(), bson.M{"username": data.UserName})
 		if err != nil {
 			c.JSON(400, err)
 			return
 		}
-		c.JSON(200, customResponse.SimpleSuccessReponse(data))
+
+		err = store.UpdateUser(c.Request.Context(), filter, &data)
+		if err != nil {
+			c.JSON(400, err)
+			return
+		}
+		c.JSON(200, customResponse.SimpleSuccessReponse(bson.M{"message": "Update teaching success"}))
 	}
 }

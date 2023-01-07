@@ -1,60 +1,33 @@
 package studentTransport
 
 import (
-	"github.com/gin-gonic/gin"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/solveError"
 	"managerstudent/component"
-	"managerstudent/modules/student/studentBiz"
+	"managerstudent/modules/class/classStorage"
 	"managerstudent/modules/student/studentModel"
 	"managerstudent/modules/student/studentStorage"
+
+	"github.com/gin-gonic/gin"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 func AddStudent(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var student studentModel.FullInfoStudent
+		var student studentModel.Student
 		if err := c.ShouldBind(&student); err != nil {
 			panic(solveError.ErrInvalidRequest(err))
 		}
+
+		classStore := classStorage.NewMongoStore(app.GetNewDataMongoDB())
+		err := classStore.AddStudent(c.Request.Context(), bson.D{{"class_id", student.ClassId}}, student.Id)
+
 		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-		biz := studentBiz.NewAdminCreateStudentBiz(store, app.GetPubsub())
-		datareturn, err := biz.CreateNewStudent(c.Request.Context(), &student)
+		err = store.CreateNewStudent(c.Request.Context(), student)
 		if err != nil {
 			c.JSON(400, err)
 			return
 		}
-		c.JSON(200, customResponse.SimpleSuccessReponse(datareturn.Id))
+		c.JSON(200, customResponse.SimpleSuccessReponse("success"))
 	}
 }
-
-//func AddStudentToClass(app component.AppContext) gin.HandlerFunc {
-//	return func(c *gin.Context) {
-//		var student studentModel.Student
-//		if err := c.ShouldBind(&student); err != nil {
-//			panic(solveError.ErrInvalidRequest(err))
-//		}
-//		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-//		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
-//		if err := biz.AddStudentToClass(c.Request.Context(), &student); err != nil {
-//			c.JSON(400, err)
-//			return
-//		}
-//		c.JSON(200, "ok")
-//	}
-//}
-//
-//func AddStudentToCourse(app component.AppContext) gin.HandlerFunc {
-//	return func(c *gin.Context) {
-//		var student studentModel.Student
-//		if err := c.ShouldBind(&student); err != nil {
-//			panic(solveError.ErrInvalidRequest(err))
-//		}
-//		store := studentStorage.NewMongoStore(app.GetNewDataMongoDB())
-//		biz := studentBiz.NewAddStudentBiz(store, app.GetPubsub())
-//		if err := biz.AddStudentToCourse(c.Request.Context(), &student); err != nil {
-//			c.JSON(400, err)
-//			return
-//		}
-//		c.JSON(200, "ok")
-//	}
-//}

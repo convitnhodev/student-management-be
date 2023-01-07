@@ -2,14 +2,15 @@ package studentBiz
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/student/studentModel"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type GetStudentStore interface {
-	FindStudent(ctx context.Context, conditions interface{}, location string) (*studentModel.Student, error)
+	FindStudent(ctx context.Context, conditions interface{}) (*studentModel.Student, error)
 }
 
 type getStudentBiz struct {
@@ -21,7 +22,7 @@ func NewGetStudent(store GetStudentStore) *getStudentBiz {
 }
 
 func (biz *getStudentBiz) GetStudent(ctx context.Context, filter interface{}) (*studentModel.Student, error) {
-	data, err := biz.store.FindStudent(ctx, bson.M{"id": filter}, studentModel.StudentCollection)
+	data, err := biz.store.FindStudent(ctx, bson.M{"id": filter})
 	if err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return nil, solveError.ErrDB(err)

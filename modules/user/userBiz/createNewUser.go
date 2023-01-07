@@ -3,7 +3,6 @@ package userBiz
 import (
 	"context"
 	"fmt"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/pubsub"
 	generatesalt "managerstudent/common/salt"
 	"managerstudent/common/solveError"
@@ -12,6 +11,8 @@ import (
 	"managerstudent/modules/notifedProvider/notificationModel"
 	"managerstudent/modules/user/userModel"
 	"time"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type CreateUserStore interface {
@@ -30,7 +31,7 @@ func NewCreateUserBiz(store CreateUserStore, hasher hasher.HasherInfo, pubsub pu
 }
 
 func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.User) error {
-	user, err := biz.store.FindUser(ctx, bson.M{"user_name": data.UserName})
+	user, err := biz.store.FindUser(ctx, bson.M{"username": data.UserName})
 	if err != nil {
 		if err.Error() != solveError.RecordNotFound {
 			managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
@@ -47,6 +48,8 @@ func (biz *createUserBiz) CreateNewUser(ctx context.Context, data *userModel.Use
 	data.Salt = salt
 	data.Acp = false
 	data.Password = biz.hasher.HashMd5(salt + data.Password + salt)
+	// data.Role = _const.Role(0)
+	fmt.Println(data)
 	if err := biz.store.CreateUser(ctx, data); err != nil {
 		managerLog.ErrorLogger.Println("Some thing error in storage user, may be from database")
 		return solveError.ErrDB(err)

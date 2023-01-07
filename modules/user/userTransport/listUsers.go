@@ -1,7 +1,6 @@
 package userTransport
 
 import (
-	"github.com/gin-gonic/gin"
 	"managerstudent/common/customResponse"
 	"managerstudent/common/paging"
 	"managerstudent/common/solveError"
@@ -9,6 +8,8 @@ import (
 	"managerstudent/modules/user/userBiz"
 	"managerstudent/modules/user/userModel"
 	"managerstudent/modules/user/userStorage"
+
+	"github.com/gin-gonic/gin"
 )
 
 func ListUsers(app component.AppContext) gin.HandlerFunc {
@@ -26,6 +27,7 @@ func ListUsers(app component.AppContext) gin.HandlerFunc {
 		store := userStorage.NewMongoStore(app.GetNewDataMongoDB())
 		biz := userBiz.NewListUsersBiz(store)
 		data, err := biz.ListUsers(c.Request.Context(), filter, &page)
+
 		if err != nil {
 			c.JSON(400, err)
 			return

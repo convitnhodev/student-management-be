@@ -1,23 +1,25 @@
-package studentStorage
+package classStorage
 
 import (
 	"context"
 	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
-	"managerstudent/modules/student/studentModel"
+	"managerstudent/modules/class/classModel"
 
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func (db *mongoStore) UpdateStudent(ctx context.Context, conditions interface{}, student studentModel.Student) error {
-	collection := db.db.Database(setupDatabase.NameDB).Collection(studentModel.NameCollection)
+func (db *mongoStore) AddStudent(ctx context.Context, condition interface{}, studentId string) error {
+	collection := db.db.Database(setupDatabase.NameDB).Collection(classModel.NameCollection)
 
 	data := bson.M{
-		"$set": student,
+		"$push": bson.M{
+			"list_student_id": studentId,
+		},
 	}
 
-	_, err := collection.UpdateOne(ctx, conditions, data)
+	_, err := collection.UpdateOne(ctx, condition, data)
 	if err != nil {
 		managerLog.ErrorLogger.Println("Can't update to DB, something DB is error")
 		return solveError.ErrDB(err)
