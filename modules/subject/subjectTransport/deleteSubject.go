@@ -9,15 +9,15 @@ import (
 	"managerstudent/modules/subject/subjectStorage"
 )
 
-func DeleteSubject (appCtx component.AppContext) gin.HandlerFunc {
+func DeleteSubject(appCtx component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		id, ok := c.GetQuery("id")
 		if ok == false {
-			panic()
+			panic("id is not exist")
 		}
 		store := subjectStorage.NewMongoStore(appCtx.GetNewDataMongoDB())
 		biz := subjectBiz.NewDeleteSubjectBiz(store)
-		if err :=biz.DeleteSubject(c.Request.Context(), bson.M{"id": id}); err != nil {
+		if err := biz.DeleteSubject(c.Request.Context(), bson.M{"id": id}); err != nil {
 			c.JSON(400, err)
 			return
 		}
