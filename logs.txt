@@ -1420,3 +1420,29 @@ INFO: 2023/01/07 00:17:12 listClassByCondition.go:31: Find record success, stora
 INFO: 2023/01/07 08:31:34 updateUser.go:22: update result success, storage return record and nil error
 INFO: 2023/01/07 08:33:43 updateUser.go:22: update result success, storage return record and nil error
 INFO: 2023/01/07 08:33:55 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 08:38:47 findUser.go:19: Cant find record from database
+INFO: 2023/01/07 08:39:06 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 08:39:06 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 08:39:50 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 08:39:50 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 08:40:03 findUser.go:19: Cant find record from database
+INFO: 2023/01/07 10:46:15 createResult.go:20: Insert to DB success
+INFO: 2023/01/07 10:53:36 createResult.go:20: Insert to DB success
+INFO: 2023/01/07 10:55:23 updateResult.go:26: Insert to DB success
+INFO: 2023/01/07 10:56:44 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 10:56:44 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 10:56:44 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 10:56:44 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 10:56:53 findUser.go:29: Find record success, storage return record and nil error
+INFO: 2023/01/07 10:56:53 updateUser.go:22: update result success, storage return record and nil error
+INFO: 2023/01/07 11:19:06 updateResult.go:46: Find record success, storage return record and nil error
+INFO: 2023/01/07 11:19:13 updateResult.go:46: Find record success, storage return record and nil error
+INFO: 2023/01/07 11:19:26 updateResult.go:46: Find record success, storage return record and nil error
+INFO: 2023/01/07 12:04:24 listClassByCondition.go:31: Find record success, storage return record and nil error
+INFO: 2023/01/07 12:04:56 findClass.go:29: Find record success, storage return record and nil error
+WARNING2023/01/07 12:04:56 createNewClass.go:34: Class existed
+INFO: 2023/01/07 12:05:03 findClass.go:19: Cant find record from database
+INFO: 2023/01/07 12:05:03 createClass.go:19: Insert New Class to DB success
+INFO: 2023/01/07 12:05:03 createNewClass.go:45: Create class ok
+INFO: 2023/01/07 12:05:08 listClassByCondition.go:31: Find record success, storage return record and nil error
+INFO: 2023/01/07 12:05:42 listClassByCondition.go:31: Find record success, storage return record and nil error
