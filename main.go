@@ -37,6 +37,13 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
 	r.Use(middleware.CORSMiddleware())
 
+	register := r.Group("/register")
+	{
+		register.POST("", userTransport.UserRegister(appCtx))
+	}
+
+	r.Use(middleware.RequireAuth(appCtx))
+
 	subjectRoute := r.Group("/subject")
 	{
 		subjectRoute.POST("/new", subjectTransport.NewCreateSubject(appCtx))
