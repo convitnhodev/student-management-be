@@ -8,8 +8,6 @@ import (
 	"managerstudent/modules/subject/subjectStorage"
 )
 
-
-
 func ListSubjects(app component.AppContext) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		store := subjectStorage.NewMongoStore(app.GetNewDataMongoDB())
@@ -19,7 +17,6 @@ func ListSubjects(app component.AppContext) gin.HandlerFunc {
 			c.JSON(400, err)
 			return
 		}
-
 		c.JSON(200, customResponse.SimpleSuccessReponse(data))
 
 	}

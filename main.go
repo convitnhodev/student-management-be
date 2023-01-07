@@ -15,7 +15,7 @@ import (
 	"managerstudent/modules/course/courseTransport"
 	"managerstudent/modules/result/resultTransport"
 	"managerstudent/modules/student/studentTransport"
-	"managerstudent/modules/subject"
+	"managerstudent/modules/subject/subjectTransport"
 	"managerstudent/modules/user/userTransport"
 	"managerstudent/rules"
 )
@@ -36,6 +36,14 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
 	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
 	r.Use(middleware.CORSMiddleware())
+
+	subjectRoute := r.Group("/subject")
+	{
+		subjectRoute.POST("/new", subjectTransport.NewCreateSubject(appCtx))
+		subjectRoute.DELETE("/delete", subjectTransport.DeleteSubject(appCtx))
+		subjectRoute.GET("/list", subjectTransport.ListSubjects(appCtx))
+	}
+
 	user := r.Group("/user")
 	{
 		user.POST("/register", userTransport.UserRegister(appCtx))
@@ -82,12 +90,6 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 			course.GET("/list", courseTransport.ListCourses(appCtx))
 		}
 
-		subjectRoute := admin.Group("/subject")
-		{
-			subjectRoute.POST("/new", subject.CreateSubject(appCtx))
-			subjectRoute.DELETE("/delete", subject.DeleteSubject(appCtx))
-			subjectRoute.GET("/list", subject.ListSubjects(appCtx))
-		}
 
 		class := admin.Group("/class")
 		{
