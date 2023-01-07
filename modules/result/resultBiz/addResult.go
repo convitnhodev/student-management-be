@@ -6,7 +6,7 @@ import (
 )
 
 type AddResultStore interface {
-	CreateResult(ctx context.Context, data resultModel.Result) error
+	CreateResult(ctx context.Context, data []resultModel.Result) error
 }
 
 type addResultBiz struct {
@@ -17,8 +17,7 @@ func NewAddResultBiz(store AddResultStore) *addResultBiz {
 	return &addResultBiz{store: store}
 }
 
-func (biz *addResultBiz) CreateOrUpdateResult(ctx context.Context, data resultModel.Result) error {
-	data.CalculateAverage()
+func (biz *addResultBiz) CreateOrUpdateResult(ctx context.Context, data []resultModel.Result) error {
 	if err := biz.store.CreateResult(ctx, data); err != nil {
 		return err
 	}

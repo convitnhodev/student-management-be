@@ -2,14 +2,16 @@ package studentStorage
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/setupDatabase"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
+	"managerstudent/modules/student/studentModel"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
-func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}, location string) (interface{}, error) {
-	collection := db.db.Database(setupDatabase.NameDB).Collection(location)
+func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}) (*studentModel.Student, error) {
+	collection := db.db.Database(setupDatabase.NameDB).Collection(studentModel.NameCollection)
 
 	var data bson.M
 
@@ -22,7 +24,7 @@ func (db *mongoStore) FindStudent(ctx context.Context, conditions interface{}, l
 		return nil, solveError.ErrDB(err)
 	}
 
-	var result interface{}
+	var result studentModel.Student
 	bsonBytes, _ := bson.Marshal(data)
 	bson.Unmarshal(bsonBytes, &result)
 	managerLog.InfoLogger.Println("Find record success, storage return record and nil error")

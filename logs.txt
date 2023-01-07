@@ -1446,3 +1446,14 @@ INFO: 2023/01/07 12:05:03 createClass.go:19: Insert New Class to DB success
 INFO: 2023/01/07 12:05:03 createNewClass.go:45: Create class ok
 INFO: 2023/01/07 12:05:08 listClassByCondition.go:31: Find record success, storage return record and nil error
 INFO: 2023/01/07 12:05:42 listClassByCondition.go:31: Find record success, storage return record and nil error
+INFO: 2023/01/07 13:22:14 createResult.go:25: Insert to DB success
+INFO: 2023/01/07 13:22:44 updateResult.go:25: Insert to DB success
+INFO: 2023/01/07 13:22:44 updateResult.go:25: Insert to DB success
+INFO: 2023/01/07 14:12:29 addStudent.go:19: Insert to DB success
+INFO: 2023/01/07 14:24:42 addStudent.go:19: Insert to DB success
+INFO: 2023/01/07 14:25:02 addStudent.go:19: Insert to DB success
+INFO: 2023/01/07 14:25:05 addStudent.go:19: Insert to DB success
+INFO: 2023/01/07 14:25:08 addStudent.go:19: Insert to DB success
+ERROR: 2023/01/07 14:26:27 updateStudent.go:16: Can't update to DB, something DB is error
+INFO: 2023/01/07 14:29:02 updateStudent.go:25: update result success, storage return record and nil error
+INFO: 2023/01/07 14:31:06 findStudent.go:20: Cant find record from database

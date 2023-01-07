@@ -2,15 +2,16 @@ package studentBiz
 
 import (
 	"context"
-	"go.mongodb.org/mongo-driver/bson"
 	"managerstudent/common/solveError"
 	"managerstudent/component/managerLog"
 	"managerstudent/modules/student/studentModel"
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type DeleteStudentStore interface {
 	DeleteStudent(ctx context.Context, filter interface{}, location string) error
-	FindStudent(ctx context.Context, conditions interface{}, location string) (*studentModel.Student, error)
+	FindStudent(ctx context.Context, conditions interface{}) (*studentModel.Student, error)
 }
 
 type deleteStudentBiz struct {
