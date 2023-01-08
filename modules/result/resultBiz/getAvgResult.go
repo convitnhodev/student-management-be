@@ -19,8 +19,9 @@ func NewCountAvgMarkBiz(store CountResultStore) *countResultBiz {
 	return &countResultBiz{store: store}
 }
 
-func (biz *countResultBiz) CountResult(ctx context.Context, idStudent interface{}) (*float64, error) {
-	result, err := biz.store.ListResultByConditions(ctx, bson.M{"id_student": idStudent}, nil)
+func (biz *countResultBiz) CountResult(ctx context.Context, idStudent interface{}, page *paging.Paging) (*float64, error) {
+	id := idStudent.(string)
+	result, err := biz.store.ListResultByConditions(ctx, bson.D{{"student_id", id}}, page)
 	if err != nil {
 		return nil, err
 	}

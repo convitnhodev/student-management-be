@@ -20,6 +20,7 @@ func ListResult(appCtx component.AppContext) gin.HandlerFunc {
 
 		class_id := c.Request.URL.Query().Get("class_id")
 		subject_id := c.Request.URL.Query().Get("subject_id")
+
 		store := resultStorage.NewMongoStore(appCtx.GetNewDataMongoDB())
 		biz := resultBiz.NewListMarkBiz(store)
 		result, err := biz.ListResult(c.Request.Context(), bson.M{"class_id": class_id, "subject_id": subject_id}, &page)

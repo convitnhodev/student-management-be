@@ -33,27 +33,28 @@ func main() {
 
 func runService(db *mongo.Client, redis *redis.Client) error {
 	r := gin.Default()
-	time := component.TimeJWT{60 * 60 * 24 * 2, 60 * 60 * 24 * 2}
+	time := component.TimeJWT{60 * 60 * 24 * 200, 60 * 60 * 24 * 2}
 	appCtx := component.NewAppContext(db, "Golang", redis, time, localPubsub.NewPubSub())
+	r.Use(middleware.Recover(appCtx))
 	r.Use(middleware.CORSMiddleware())
 
-	register := r.Group("/register")
+	access := r.Group("/user")
 	{
-		register.POST("", userTransport.UserRegister(appCtx))
+		access.POST("/register", userTransport.UserRegister(appCtx))
+		access.POST("/login", userTransport.Login(appCtx))
 	}
 
-	subjectRoute := r.Group("/subject")
+	subjectRoute := r.Group("/subject", middleware.RequireAuth(appCtx))
 	{
 		subjectRoute.POST("/new", subjectTransport.NewCreateSubject(appCtx))
 		subjectRoute.DELETE("/delete", subjectTransport.DeleteSubject(appCtx))
 		subjectRoute.GET("/list", subjectTransport.ListSubjects(appCtx))
-		subjectRoute.GET("/get", middleware.RequireAuth(appCtx), subjectTransport.GetSubject(appCtx))
+		subjectRoute.GET("/get", subjectTransport.GetSubject(appCtx))
 	}
 
-	user := r.Group("/user")
+	user := r.Group("/user", middleware.RequireAuth(appCtx))
 	{
-		user.POST("/register", userTransport.UserRegister(appCtx))
-		user.POST("/login", userTransport.Login(appCtx))
+
 		user.GET("/list", userTransport.ListUsers(appCtx))
 		user.GET("/get", userTransport.GetByUsername(appCtx))
 		user.POST("/update/homeroom", userTransport.UpdateHomeroom(appCtx))
@@ -61,9 +62,9 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		user.PATCH("/update", userTransport.UpdateUser(appCtx))
 		user.PATCH("/accept", userTransport.AcceptUser(appCtx))
 		user.PATCH("/update/password", userTransport.UserUpdatePassword(appCtx))
-		user.GET("/profile", middleware.RequireAuth(appCtx), userTransport.GetProfile(appCtx))
+		user.GET("/profile", userTransport.GetProfile(appCtx))
 	}
-	student := r.Group("/student")
+	student := r.Group("/student", middleware.RequireAuth(appCtx))
 	{
 		student.POST("/new", studentTransport.AddStudent(appCtx))
 		student.PATCH("/update", studentTransport.UpdateStudent(appCtx))
@@ -81,6 +82,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		result.PATCH("/update", resultTransport.UpdateResult(appCtx))
 		result.GET("/get", resultTransport.GetAvgResult(appCtx))
 		result.GET("/list", resultTransport.ListResult(appCtx))
+		result.GET("/get/each", resultTransport.GetEachResult(appCtx))
 	}
 
 	course := r.Group("course")
@@ -90,7 +92,7 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 		course.GET("/list", courseTransport.ListCourses(appCtx))
 	}
 
-	class := r.Group("/class")
+	class := r.Group("/class", middleware.RequireAuth(appCtx))
 	{
 		class.POST("/new", classTransport.CreateNewClass(appCtx))
 		class.DELETE("/delete", classTransport.DeleteClass(appCtx))
@@ -103,10 +105,10 @@ func runService(db *mongo.Client, redis *redis.Client) error {
 	{
 		rulesRoute := admin.Group("/rules")
 		{
+
 			rulesRoute.GET("/get", rules.GetRules(appCtx))
 			rulesRoute.POST("/update", rules.UpdateRules(appCtx))
 		}
 	}
-
 	return r.Run(":8080")
 }

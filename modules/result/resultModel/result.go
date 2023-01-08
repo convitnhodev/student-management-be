@@ -3,7 +3,7 @@ package resultModel
 const NameCollection = "Results"
 
 type Result struct {
-	StudentId string  `json:"student_id" bson:"student_id,omitempty"`
+	StudentId string  `json:"student_id" bson:"student_id"`
 	ClassId   string  `json:"class_id" bson:"class_id,omitempty"`
 	SubjectId string  `json:"subject_id" bson:"subject_id,omitempty"`
 	Exam15    float64 `json:"exam15" bson:"exam15"`
